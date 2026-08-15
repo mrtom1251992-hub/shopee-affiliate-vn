@@ -7,4 +7,8 @@ export default defineConfig({
   site: 'https://shopeeaffvn.com',
   integrations: [mdx(), sitemap()],
   scopedStyleStrategy: 'where',
+  build: {
+    inlineStylesheets: 'always',
+  },
+  compressHTML: true,
 });
