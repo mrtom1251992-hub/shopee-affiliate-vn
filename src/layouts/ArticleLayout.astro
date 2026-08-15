@@ -7,7 +7,6 @@ import AuthorBox from '../components/article/AuthorBox.astro';
 import ShareButtons from '../components/article/ShareButtons.astro';
 import CommentSection from '../components/article/CommentSection.astro';
 import SidebarRoadmap from '../components/widgets/SidebarRoadmap.astro';
-import SidebarProof from '../components/widgets/SidebarProof.astro';
 import SidebarTools from '../components/widgets/SidebarTools.astro';
 import SidebarNewsletter from '../components/widgets/SidebarNewsletter.astro';
 import type { CollectionEntry } from 'astro:content';
@@ -18,8 +17,8 @@ interface Props {
   relatedArticles?: CollectionEntry<'bai-viet'>[];
 }
 
-const { article, headings, relatedArticles = [] } = Astro.props;
-const { title, description, categoryName, category, publishDate, author, hotBadge, views, commentsCount, affiliateUrl, affiliateCtaText } = article.data;
+const { article, headings } = Astro.props;
+const { title, description, categoryName, category, publishDate, author, hotBadge, affiliateUrl, affiliateCtaText } = article.data;
 
 const formattedDate = new Intl.DateTimeFormat('vi-VN', {
   day: 'numeric',
@@ -48,7 +47,6 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
             {hotBadge && <span class="badge badge--primary">{hotBadge}</span>}
             <a href={`/chuyen-muc/${category}`} class="badge badge--accent">{categoryName}</a>
             <span class="card__date">📅 {formattedDate}</span>
-            <span class="card__date">👁 {views.toLocaleString('vi-VN')} lượt xem</span>
           </div>
 
           <h1 class="article-header__title">{title}</h1>
@@ -70,13 +68,12 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
 
         <ShareButtons title={title} />
         <AuthorBox author={author} />
-        <CommentSection slug={article.slug} commentsCount={commentsCount} />
+        <CommentSection slug={article.slug} />
       </article>
 
       <!-- Right: Sticky Sidebar -->
       <aside class="content-sidebar" id="articleSidebar">
         <SidebarRoadmap />
-        <SidebarProof />
         <SidebarTools />
         <SidebarNewsletter />
       </aside>

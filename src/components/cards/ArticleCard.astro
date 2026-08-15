@@ -6,8 +6,6 @@ interface Props {
   categoryName: string;
   publishDate: Date;
   author?: string;
-  views?: number;
-  commentsCount?: number;
   hotBadge?: string;
   isHero?: boolean;
 }
@@ -19,8 +17,6 @@ const {
   categoryName,
   publishDate,
   author = 'Admin',
-  views = 1200,
-  commentsCount = 12,
   hotBadge,
   isHero = false,
 } = Astro.props;
@@ -54,10 +50,9 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
         <div class="card__author-avatar">S</div>
         <span>{author}</span>
       </div>
-      <div class="card__stats">
-        <span>👁 {views.toLocaleString('vi-VN')}</span>
-        <span>💬 {commentsCount}</span>
-      </div>
+      <a href={`/bai-viet/${slug}`} class="btn btn--ghost btn--sm" style="padding: var(--space-1) var(--space-3); color: var(--color-primary-600);">
+        Đọc tiếp →
+      </a>
     </div>
   </div>
 </article>
