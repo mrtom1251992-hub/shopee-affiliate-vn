@@ -21,16 +21,16 @@ if (fs.existsSync(inputDir)) {
 
       const originalSize = fs.statSync(srcPath).size;
 
-      // Optimize to 800px width with smart compression for lightning mobile speed
+      // Ultra-optimized 720px width at quality 68 for 100/100 Mobile PageSpeed
       await sharp(srcPath)
-        .resize({ width: 800, withoutEnlargement: true })
-        .webp({ quality: 75, effort: 6, smartSubsample: true })
+        .resize({ width: 720, withoutEnlargement: true })
+        .webp({ quality: 68, effort: 6, smartSubsample: true })
         .toFile(destPath);
 
       const newSize = fs.statSync(destPath).size;
       const reduction = (((originalSize - newSize) / originalSize) * 100).toFixed(1);
 
-      console.log(`[Super-Optimized] ${file} -> ${baseName}.webp: ${(originalSize / 1024 / 1024).toFixed(2)}MB -> ${(newSize / 1024).toFixed(1)}KB (-${reduction}%)`);
+      console.log(`[Ultra-Optimized] ${file} -> ${baseName}.webp: ${(originalSize / 1024 / 1024).toFixed(2)}MB -> ${(newSize / 1024).toFixed(1)}KB (-${reduction}%)`);
     }
   }
 }

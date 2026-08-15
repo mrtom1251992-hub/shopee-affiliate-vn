@@ -541,8 +541,12 @@
 
 .card__date {
   font-size: var(--font-size-xs);
-  color: var(--text-muted);
+  color: var(--color-neutral-700);
   white-space: nowrap;
+}
+
+[data-theme="dark"] .card__date {
+  color: var(--color-neutral-400);
 }
 
 .card__title {
@@ -800,19 +804,20 @@
    ───────────────────────────────────── */
 .disclosure {
   background: var(--color-primary-50);
-  border-left: 4px solid var(--color-primary-500);
+  border-left: 4px solid var(--color-primary-600);
   padding: var(--space-4) var(--space-6);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   font-size: var(--font-size-sm);
-  color: var(--text-secondary);
+  color: var(--color-neutral-800);
   display: flex;
   align-items: center;
   gap: var(--space-3);
 }
 
 [data-theme="dark"] .disclosure {
-  background: rgba(255, 143, 0, 0.06);
-  border-left-color: var(--color-primary-600);
+  background: rgba(255, 143, 0, 0.08);
+  border-left-color: var(--color-primary-500);
+  color: var(--color-neutral-200);
 }
 
 .disclosure__icon {

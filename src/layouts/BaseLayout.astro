@@ -76,18 +76,26 @@ const {
       });
     }
 
-    // Reading Progress Bar
+    // Optimized Reading Progress Bar (Zero Forced Reflow with requestAnimationFrame)
     const progressBar = document.getElementById('progressBar');
     if (progressBar) {
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = progress + '%';
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight > 0) {
+              progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
       }, { passive: true });
     }
 
-    // Mobile Menu Drawer
+    // Mobile Menu Drawer (Accessible with inert toggle)
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuBackdrop = document.getElementById('menuBackdrop');
@@ -97,6 +105,7 @@ const {
       if (!mobileMenu || !hamburgerBtn) return;
       mobileMenu.classList.add('mobile-menu--open');
       mobileMenu.setAttribute('aria-hidden', 'false');
+      mobileMenu.removeAttribute('inert');
       hamburgerBtn.classList.add('hamburger--active');
       hamburgerBtn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
@@ -106,6 +115,7 @@ const {
       if (!mobileMenu || !hamburgerBtn) return;
       mobileMenu.classList.remove('mobile-menu--open');
       mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenu.setAttribute('inert', '');
       hamburgerBtn.classList.remove('hamburger--active');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
