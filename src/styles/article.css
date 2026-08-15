@@ -190,6 +190,10 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .prose th, .prose td {
@@ -197,6 +201,7 @@
   text-align: left;
   border-bottom: 1px solid var(--color-neutral-200);
   font-size: var(--font-size-sm);
+  white-space: nowrap;
 }
 
 [data-theme="dark"] .prose th,
@@ -213,6 +218,40 @@
 [data-theme="dark"] .prose th {
   background: var(--color-secondary-700);
   color: var(--color-primary-400);
+}
+
+.prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--color-secondary-900);
+  color: var(--color-neutral-100);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: var(--space-6) 0;
+  box-sizing: border-box;
+}
+
+.prose code {
+  font-family: var(--font-family-mono);
+  background: var(--color-neutral-100);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  color: var(--color-primary-700);
+}
+
+[data-theme="dark"] .prose code {
+  background: var(--color-secondary-800);
+  color: var(--color-primary-400);
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
 }
 
 /* ── In-Article Callout / Affiliate Banner ── */

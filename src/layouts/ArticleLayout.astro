@@ -5,7 +5,7 @@ import TableOfContents from '../components/article/TableOfContents.astro';
 import AffiliateCtaBox from '../components/article/AffiliateCtaBox.astro';
 import AuthorBox from '../components/article/AuthorBox.astro';
 import ShareButtons from '../components/article/ShareButtons.astro';
-import CommentSection from '../components/article/CommentSection.astro';
+import CommunityGroupCta from '../components/article/CommunityGroupCta.astro';
 import SidebarRoadmap from '../components/widgets/SidebarRoadmap.astro';
 import SidebarTools from '../components/widgets/SidebarTools.astro';
 import SidebarNewsletter from '../components/widgets/SidebarNewsletter.astro';
@@ -68,7 +68,9 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
 
         <ShareButtons title={title} />
         <AuthorBox author={author} />
-        <CommentSection slug={article.slug} />
+        
+        <!-- Replaced fake comments with real Facebook Community Group CTA -->
+        <CommunityGroupCta />
       </article>
 
       <!-- Right: Sticky Sidebar -->
