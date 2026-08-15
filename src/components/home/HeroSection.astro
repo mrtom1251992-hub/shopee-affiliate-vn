@@ -29,7 +29,15 @@ const formatPostDate = (date: Date) => {
       <article class="card card--hero hero__featured" id="featuredPost">
         <div class="card__image">
           {featuredPost.data.coverImage ? (
-            <img src={featuredPost.data.coverImage} alt={featuredPost.data.title} loading="eager" />
+            <img 
+              src={featuredPost.data.coverImage} 
+              alt={featuredPost.data.title} 
+              loading="eager" 
+              decoding="async" 
+              fetchpriority="high"
+              width="800" 
+              height="450" 
+            />
           ) : (
             <span role="img" aria-label={featuredPost.data.title}>🔥</span>
           )}
@@ -65,7 +73,14 @@ const formatPostDate = (date: Date) => {
           <article class="card" id={`hero-${post.slug.replace(/\//g, '-')}`}>
             <div class="card__image">
               {post.data.coverImage ? (
-                <img src={post.data.coverImage} alt={post.data.title} loading="lazy" />
+                <img 
+                  src={post.data.coverImage} 
+                  alt={post.data.title} 
+                  loading="lazy" 
+                  decoding="async" 
+                  width="400" 
+                  height="225" 
+                />
               ) : (
                 <span role="img" aria-label={post.data.title}>🛍</span>
               )}

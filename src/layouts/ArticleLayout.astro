@@ -54,7 +54,15 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
 
           {coverImage && (
             <div class="article-header__cover">
-              <img src={coverImage} alt={title} loading="eager" />
+              <img 
+                src={coverImage} 
+                alt={title} 
+                loading="eager" 
+                decoding="async" 
+                fetchpriority="high"
+                width="1200" 
+                height="675" 
+              />
             </div>
           )}
         </header>

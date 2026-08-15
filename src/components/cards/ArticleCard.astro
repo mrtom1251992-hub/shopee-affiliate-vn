@@ -33,7 +33,14 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
 <article class={`card ${isHero ? 'card--hero' : ''}`} id={`card-${slug.replace(/\//g, '-')}`}>
   <div class="card__image">
     {coverImage ? (
-      <img src={coverImage} alt={title} loading="lazy" />
+      <img 
+        src={coverImage} 
+        alt={title} 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="338" 
+      />
     ) : (
       <span role="img" aria-label={title}>{isHero ? '🔥' : '🛍'}</span>
     )}
