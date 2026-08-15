@@ -1,0 +1,8 @@
+name = "shopee-affiliate-vn"
+compatibility_date = "2026-08-15"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "shopee-aff-db"
+database_id = "5e43a6f7-c21e-4bc5-bd04-c8426ab58177"
