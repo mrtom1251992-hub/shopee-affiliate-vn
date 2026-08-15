@@ -1,0 +1,65 @@
+---
+// Back To Top Floating Button
+---
+
+<button 
+  id="backToTopBtn" 
+  class="back-to-top" 
+  aria-label="Cuộn lên đầu trang" 
+  title="Cuộn lên đầu trang"
+  tabindex="-1"
+>
+  <svg 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2.5" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  >
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('backToTopBtn');
+    if (!btn) return;
+
+    let isVisible = false;
+    let ticking = false;
+
+    const checkScroll = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const shouldShow = scrollY > 400;
+
+      if (shouldShow !== isVisible) {
+        isVisible = shouldShow;
+        if (isVisible) {
+          btn.classList.add('back-to-top--visible');
+          btn.setAttribute('tabindex', '0');
+        } else {
+          btn.classList.remove('back-to-top--visible');
+          btn.setAttribute('tabindex', '-1');
+        }
+      }
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(checkScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  })();
+</script>
