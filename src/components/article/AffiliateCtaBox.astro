@@ -1,0 +1,28 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  affiliateUrl?: string;
+}
+
+const {
+  title = "🛒 Bắt Đầu Kiếm Tiền Với Shopee Affiliate Ngay Hôm Nay!",
+  description = "Đăng ký chương trình Shopee Affiliate hoàn toàn miễn phí. Nhận ngay bộ tài liệu hướng dẫn chọn sản phẩm và kịch bản video TikTok kéo hàng nghìn click mỗi ngày.",
+  buttonText = "Đăng Ký Shopee Affiliate Miễn Phí →",
+  affiliateUrl = "https://affiliate.shopee.vn"
+} = Astro.props;
+---
+
+<div class="cta-box" id="articleCtaBox">
+  <h3 class="cta-box__title">{title}</h3>
+  <p class="cta-box__desc">{description}</p>
+  <a 
+    href={affiliateUrl} 
+    target="_blank" 
+    rel="nofollow noopener" 
+    class="btn btn--lg"
+  >
+    {buttonText}
+  </a>
+</div>

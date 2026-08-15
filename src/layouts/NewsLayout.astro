@@ -1,0 +1,48 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SidebarRoadmap from '../components/widgets/SidebarRoadmap.astro';
+import SidebarProof from '../components/widgets/SidebarProof.astro';
+import SidebarTools from '../components/widgets/SidebarTools.astro';
+import SidebarNewsletter from '../components/widgets/SidebarNewsletter.astro';
+import FaqSection from '../components/home/FaqSection.astro';
+import DisclosureBanner from '../components/home/DisclosureBanner.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  showFaq?: boolean;
+  showDisclosure?: boolean;
+}
+
+const {
+  title,
+  description,
+  showFaq = true,
+  showDisclosure = true,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  {showDisclosure && <DisclosureBanner />}
+  
+  <slot name="hero" />
+
+  <section class="content-area container" id="mainContent">
+    <!-- Main Content Stream (Left) -->
+    <div class="content-main">
+      <slot />
+    </div>
+
+    <!-- Sticky Sidebar (Right) -->
+    <aside class="content-sidebar" id="sidebar">
+      <slot name="sidebar">
+        <SidebarRoadmap />
+        <SidebarProof />
+        <SidebarTools />
+        <SidebarNewsletter />
+      </slot>
+    </aside>
+  </section>
+
+  {showFaq && <FaqSection />}
+</BaseLayout>

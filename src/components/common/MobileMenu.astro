@@ -1,0 +1,77 @@
+---
+// Mobile Drawer Menu
+---
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" id="menuBackdrop"></div>
+  <div class="mobile-menu__drawer">
+    <div class="mobile-menu__header">
+      <a href="/" class="navbar__logo">
+        <span class="navbar__logo-icon">S</span>
+        ShopeeAffVN
+      </a>
+      <button class="mobile-menu__close" id="menuCloseBtn" aria-label="Đóng menu">
+        ✕
+      </button>
+    </div>
+
+    <div class="mobile-menu__search">
+      <form action="/search" method="GET">
+        <input 
+          type="search" 
+          name="q" 
+          class="widget__input" 
+          placeholder="🔍 Tìm kiếm bài viết Shopee..." 
+          aria-label="Tìm kiếm bài viết"
+        />
+      </form>
+    </div>
+
+    <nav class="mobile-menu__nav" aria-label="Menu di động">
+      <a href="/chuyen-muc/huong-dan" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">📖</span>
+        Hướng Dẫn
+      </a>
+      <a href="/chuyen-muc/case-study" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">📊</span>
+        Case Study
+      </a>
+      <a href="/chuyen-muc/chon-san-pham" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">🛍</span>
+        Chọn Sản Phẩm
+      </a>
+      <a href="/chuyen-muc/tao-content" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">✏️</span>
+        Tạo Content
+      </a>
+      <a href="/chuyen-muc/traffic-seo" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">🚀</span>
+        Traffic & SEO
+      </a>
+      <a href="/bai-viet" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">📚</span>
+        Tất Cả Bài Viết
+      </a>
+      <a href="/about" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">👤</span>
+        Giới Thiệu
+      </a>
+      <a href="/contact" class="mobile-menu__link">
+        <span class="mobile-menu__link-icon">✉️</span>
+        Liên Hệ / Hợp Tác
+      </a>
+    </nav>
+
+    <div class="mobile-menu__footer">
+      <a href="https://affiliate.shopee.vn" target="_blank" rel="nofollow noopener" class="btn btn--primary" style="width: 100%;">
+        Đăng Ký Shopee Affiliate →
+      </a>
+      <div class="mobile-menu__socials">
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="TikTok">🎵</a>
+        <a href="#" aria-label="Telegram">✈️</a>
+        <a href="#" aria-label="YouTube">▶️</a>
+      </div>
+    </div>
+  </div>
+</div>

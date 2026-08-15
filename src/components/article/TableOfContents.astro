@@ -1,0 +1,30 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+{tocHeadings.length > 0 && (
+  <div class="toc" id="tableOfContents">
+    <div class="toc__title">
+      <span>📑</span>
+      <span>Mục Lục Bài Viết</span>
+    </div>
+    <ol class="toc__list">
+      {tocHeadings.map((h) => (
+        <li style={`margin-left: ${h.depth === 3 ? 'var(--space-4)' : '0'};`}>
+          <a href={`#${h.slug}`}>{h.text}</a>
+        </li>
+      ))}
+    </ol>
+  </div>
+)}

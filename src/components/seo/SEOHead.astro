@@ -1,0 +1,71 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  articleDate?: Date;
+  articleAuthor?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = '/images/og-image.jpg',
+  articleDate,
+  articleAuthor = 'Admin',
+} = Astro.props;
+
+const siteTitle = 'ShopeeAffVN — Kinh Nghiệm Shopee Affiliate';
+const fullTitle = title.includes('ShopeeAffVN') ? title : `${title} | ${siteTitle}`;
+---
+
+<!-- Global Metadata -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="keywords" content="shopee affiliate, kinh nghiệm shopee affiliate, kiếm tiền shopee, hoa hồng shopee 2026, hướng dẫn shopee affiliate, tiktok affiliate shopee" />
+<meta name="author" content={articleAuthor} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={articleDate ? "article" : "website"} />
+<meta property="og:url" content={Astro.url.href} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImage, Astro.site || Astro.url.origin).href} />
+<meta property="og:locale" content="vi_VN" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Outfit:wght@700;900&display=swap" rel="stylesheet" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": articleDate ? "Article" : "WebSite",
+  "name": fullTitle,
+  "headline": title,
+  "description": description,
+  "url": Astro.url.href,
+  "author": {
+    "@type": "Person",
+    "name": articleAuthor
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShopeeAffVN",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shopeeaffvn.com/favicon.svg"
+    }
+  },
+  ...(articleDate ? { "datePublished": articleDate.toISOString() } : {})
+})} />

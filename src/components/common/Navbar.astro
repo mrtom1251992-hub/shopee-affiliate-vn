@@ -1,0 +1,48 @@
+---
+// Navbar Component
+const currentPath = Astro.url.pathname;
+---
+
+<header class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <!-- Brand Logo -->
+    <a href="/" class="navbar__logo" title="ShopeeAffVN — Kinh nghiệm Shopee Affiliate">
+      <span class="navbar__logo-icon">S</span>
+      ShopeeAffVN
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="navbar__nav" id="mainNav" aria-label="Điều hướng chính">
+      <a href="/chuyen-muc/huong-dan" class={`navbar__link ${currentPath.includes('huong-dan') ? 'navbar__link--active' : ''}`}>
+        Hướng Dẫn
+      </a>
+      <a href="/chuyen-muc/case-study" class={`navbar__link ${currentPath.includes('case-study') ? 'navbar__link--active' : ''}`}>
+        Case Study
+      </a>
+      <a href="/chuyen-muc/chon-san-pham" class={`navbar__link ${currentPath.includes('chon-san-pham') ? 'navbar__link--active' : ''}`}>
+        Chọn Sản Phẩm
+      </a>
+      <a href="/chuyen-muc/tao-content" class={`navbar__link ${currentPath.includes('tao-content') ? 'navbar__link--active' : ''}`}>
+        Tạo Content
+      </a>
+      <a href="/chuyen-muc/traffic-seo" class={`navbar__link ${currentPath.includes('traffic-seo') ? 'navbar__link--active' : ''}`}>
+        Traffic & SEO
+      </a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="navbar__actions">
+      <a href="/search" class="navbar__search" aria-label="Tìm kiếm bài viết">
+        🔍 <span>Tìm kiếm...</span>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Chuyển đổi Dark/Light mode">
+        🌙
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Mở menu di động" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </div>
+</header>

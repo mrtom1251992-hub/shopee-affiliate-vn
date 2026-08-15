@@ -1,0 +1,85 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/seo/Breadcrumb.astro';
+import TableOfContents from '../components/article/TableOfContents.astro';
+import AffiliateCtaBox from '../components/article/AffiliateCtaBox.astro';
+import AuthorBox from '../components/article/AuthorBox.astro';
+import ShareButtons from '../components/article/ShareButtons.astro';
+import CommentSection from '../components/article/CommentSection.astro';
+import SidebarRoadmap from '../components/widgets/SidebarRoadmap.astro';
+import SidebarProof from '../components/widgets/SidebarProof.astro';
+import SidebarTools from '../components/widgets/SidebarTools.astro';
+import SidebarNewsletter from '../components/widgets/SidebarNewsletter.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'bai-viet'>;
+  headings: { depth: number; slug: string; text: string }[];
+  relatedArticles?: CollectionEntry<'bai-viet'>[];
+}
+
+const { article, headings, relatedArticles = [] } = Astro.props;
+const { title, description, categoryName, category, publishDate, author, hotBadge, views, commentsCount, affiliateUrl, affiliateCtaText } = article.data;
+
+const formattedDate = new Intl.DateTimeFormat('vi-VN', {
+  day: 'numeric',
+  month: 'numeric',
+  year: 'numeric'
+}).format(publishDate);
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  articleDate={publishDate}
+  articleAuthor={author}
+>
+  <div class="container" style="padding-top: var(--space-6);">
+    <Breadcrumb items={[
+      { name: categoryName, url: `/chuyen-muc/${category}` },
+      { name: title }
+    ]} />
+
+    <section class="content-area" id="articleMain" style="padding-top: 0;">
+      <!-- Left: Article Content -->
+      <article class="content-main">
+        <header class="article-header">
+          <div class="article-header__meta">
+            {hotBadge && <span class="badge badge--primary">{hotBadge}</span>}
+            <a href={`/chuyen-muc/${category}`} class="badge badge--accent">{categoryName}</a>
+            <span class="card__date">📅 {formattedDate}</span>
+            <span class="card__date">👁 {views.toLocaleString('vi-VN')} lượt xem</span>
+          </div>
+
+          <h1 class="article-header__title">{title}</h1>
+          <p class="article-header__lead">{description}</p>
+        </header>
+
+        <TableOfContents headings={headings} />
+
+        <div class="prose">
+          <slot />
+        </div>
+
+        <AffiliateCtaBox 
+          title="🛒 Bắt Đầu Kiếm Tiền Với Shopee Affiliate Ngay Hôm Nay!"
+          description="Đăng ký tài khoản Shopee Affiliate hoàn toàn miễn phí. Hưởng mức hoa hồng lên đến 20-30% cho mỗi đơn hàng thành công."
+          buttonText={affiliateCtaText || "Đăng Ký Shopee Affiliate Miễn Phí →"}
+          affiliateUrl={affiliateUrl || "https://affiliate.shopee.vn"}
+        />
+
+        <ShareButtons title={title} />
+        <AuthorBox author={author} />
+        <CommentSection slug={article.slug} commentsCount={commentsCount} />
+      </article>
+
+      <!-- Right: Sticky Sidebar -->
+      <aside class="content-sidebar" id="articleSidebar">
+        <SidebarRoadmap />
+        <SidebarProof />
+        <SidebarTools />
+        <SidebarNewsletter />
+      </aside>
+    </section>
+  </div>
+</BaseLayout>

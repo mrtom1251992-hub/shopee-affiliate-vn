@@ -1,0 +1,183 @@
+/* ============================================================
+   LAYOUT — Page Grid, Sections, Responsive Breakpoints
+   NewsLayout: Main content + Sidebar
+   ============================================================ */
+
+/* ── Main Page Layout ── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__content {
+  flex: 1;
+}
+
+/* ── Hero Section ── */
+.hero {
+  padding: var(--space-10) 0;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--space-6);
+}
+
+.hero__featured {
+  grid-row: span 2;
+}
+
+.hero__secondary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Content Area: Main + Sidebar ── */
+.content-area {
+  display: grid;
+  grid-template-columns: 1fr var(--sidebar-width);
+  gap: var(--space-10);
+  padding: var(--space-10) 0;
+  align-items: start;
+}
+
+.content-main {
+  min-width: 0; /* prevent grid overflow */
+}
+
+.content-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+/* ── Article Grid ── */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+/* ── Section Spacing ── */
+.section {
+  padding: var(--space-12) 0;
+}
+
+.section--muted {
+  background: var(--surface-muted);
+}
+
+/* ── Disclosure Section ── */
+.disclosure-section {
+  padding: var(--space-4) 0;
+}
+
+/* ── Category Tabs Section ── */
+.tabs-section {
+  padding: var(--space-6) 0 var(--space-2);
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile First Adjustments
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .content-area {
+    grid-template-columns: 1fr;
+  }
+
+  .content-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --font-size-4xl: 2.25rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-2xl: 1.5rem;
+  }
+
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__featured {
+    grid-row: auto;
+  }
+
+  .card--hero {
+    grid-column: auto;
+  }
+
+  .article-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hide desktop nav, show hamburger + mobile menu */
+  .navbar__nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  /* Hide search text on mobile, keep icon */
+  .navbar__search span {
+    display: none;
+  }
+
+  .navbar__search {
+    min-width: auto;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: var(--space-4);
+  }
+
+  .cta-box {
+    padding: var(--space-6);
+  }
+
+  .proof-box {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+}

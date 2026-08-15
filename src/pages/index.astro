@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import NewsLayout from '../layouts/NewsLayout.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import CategoryTabs from '../components/home/CategoryTabs.astro';
+import ArticleCard from '../components/cards/ArticleCard.astro';
+import AffiliateCtaBox from '../components/article/AffiliateCtaBox.astro';
+
+const allPosts = await getCollection('bai-viet');
+const sortedPosts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Main featured post and secondary posts
+const featuredPost = sortedPosts.find(p => p.data.featured) || sortedPosts[0];
+const remainingPosts = sortedPosts.filter(p => p.slug !== featuredPost.slug);
+const secondaryHeroPosts = remainingPosts.slice(0, 2);
+const gridPosts = remainingPosts.slice(2);
+---
+
+<NewsLayout 
+  title="Kinh Nghiệm Shopee Affiliate 2026 — Hướng Dẫn Kiếm Tiền Hoa Hồng Shopee Từ A-Z"
+  description="Chia sẻ kinh nghiệm thực chiến Shopee Affiliate Marketing 2026: cách đăng ký, chọn sản phẩm hoa hồng cao, tạo video TikTok và xây blog SEO hiệu quả nhất."
+>
+  <div slot="hero">
+    <HeroSection 
+      featuredPost={featuredPost} 
+      secondaryPosts={secondaryHeroPosts} 
+    />
+    <CategoryTabs activeCategory="all" />
+  </div>
+
+  <div class="section-header">
+    <h2 class="section-header__title">Bài Viết Shopee Affiliate Mới Nhất</h2>
+    <a href="/bai-viet" class="btn btn--outline btn--sm">Xem tất cả ({sortedPosts.length}) →</a>
+  </div>
+
+  <div class="article-grid" id="articleGrid">
+    {gridPosts.map((post) => (
+      <ArticleCard
+        slug={post.slug}
+        title={post.data.title}
+        description={post.data.description}
+        categoryName={post.data.categoryName}
+        publishDate={post.data.publishDate}
+        author={post.data.author}
+        views={post.data.views}
+        commentsCount={post.data.commentsCount}
+        hotBadge={post.data.hotBadge}
+      />
+    ))}
+  </div>
+
+  <div style="margin-top: var(--space-10);">
+    <AffiliateCtaBox 
+      title="🛒 Đăng Ký Shopee Affiliate — Bắt Đầu Kiếm Hoa Hồng Ngay!"
+      description="Chương trình Shopee Affiliate hoàn toàn miễn phí. Đăng ký ngay hôm nay để nhận trọn bộ tài liệu chọn sản phẩm và lộ trình scale thu nhập 50 triệu/tháng."
+      buttonText="Đăng Ký Shopee Affiliate Miễn Phí →"
+      affiliateUrl="https://affiliate.shopee.vn"
+    />
+  </div>
+</NewsLayout>

@@ -1,0 +1,26 @@
+---
+interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Trang Chủ</a>
+  {items.map((item) => (
+    <>
+      <span class="breadcrumb__sep">/</span>
+      {item.url ? (
+        <a href={item.url}>{item.name}</a>
+      ) : (
+        <span>{item.name}</span>
+      )}
+    </>
+  ))}
+</nav>

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/seo/Breadcrumb.astro';
+---
+
+<BaseLayout 
+  title="Chính Sách Bảo Mật — ShopeeAffVN"
+  description="Chính sách bảo mật thông tin người dùng và quy định về tiếp thị liên kết tại ShopeeAffVN."
+>
+  <div class="container container--narrow" style="padding-top: var(--space-6); padding-bottom: var(--space-16);">
+    <Breadcrumb items={[{ name: "Chính Sách Bảo Mật" }]} />
+
+    <header class="article-header">
+      <h1 class="article-header__title">Chính Sách Bảo Mật Thông Tin</h1>
+      <p class="article-header__lead">
+        Cập nhật lần cuối: Ngày 15 Tháng 8, 2026.
+      </p>
+    </header>
+
+    <div class="prose">
+      <h2>1. Thu Thập Thông Tin Cá Nhân</h2>
+      <p>
+        ShopeeAffVN tôn trọng quyền riêng tư của bạn. Khi bạn đăng ký nhận bản tin (newsletter) hoặc để lại bình luận, 
+        chúng tôi chỉ thu thập địa chỉ email và tên để phục vụ việc gửi thông báo bài viết mới. 
+        Chúng tôi cam kết <strong>không bao giờ bán, trao đổi hoặc chia sẻ thông tin này cho bên thứ ba</strong>.
+      </p>
+
+      <h2>2. Sử Dụng Cookie & Liên Kết Tiếp Thị (Affiliate Links)</h2>
+      <p>
+        Website sử dụng cookies để cải thiện trải nghiệm duyệt web. Khi bạn nhấp vào các liên kết Shopee Affiliate trên trang web, 
+        một cookie theo dõi an toàn từ sàn Shopee sẽ được lưu tạm thời trên trình duyệt của bạn (thời hạn 7 ngày) 
+        để ghi nhận đơn hàng hợp lệ. Quá trình này không thu thập bất kỳ dữ liệu nhạy cảm cá nhân nào của bạn.
+      </p>
+
+      <h2>3. Liên Kết Đến Các Trang Web Bên Ngoài</h2>
+      <p>
+        Trang web của chúng tôi có chứa các liên kết dẫn tới Shopee, TikTok và các nền tảng mạng xã hội khác. 
+        Chúng tôi không chịu trách nhiệm về nội dung hoặc chính sách bảo mật của các trang web bên thứ ba này.
+      </p>
+
+      <h2>4. Liên Hệ Về Quyền Riêng Tư</h2>
+      <p>
+        Nếu bạn có bất kỳ câu hỏi nào về chính sách này, vui lòng gửi email về: <code>contact@shopeeaffvn.com</code>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

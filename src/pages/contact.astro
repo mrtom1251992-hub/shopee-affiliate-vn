@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/seo/Breadcrumb.astro';
+import SidebarProof from '../components/widgets/SidebarProof.astro';
+import SidebarNewsletter from '../components/widgets/SidebarNewsletter.astro';
+---
+
+<BaseLayout 
+  title="Liên Hệ & Hợp Tác — ShopeeAffVN"
+  description="Liên hệ với ban quản trị ShopeeAffVN để trao đổi kinh nghiệm, hợp tác quảng cáo, hoặc nhận hỗ trợ về Shopee Affiliate."
+>
+  <div class="container" style="padding-top: var(--space-6);">
+    <Breadcrumb items={[{ name: "Liên Hệ" }]} />
+
+    <section class="content-area" style="padding-top: 0;">
+      <div class="content-main">
+        <header class="article-header">
+          <h1 class="article-header__title">Liên Hệ & Hợp Tác</h1>
+          <p class="article-header__lead">
+            Bạn có câu hỏi về Shopee Affiliate hoặc muốn hợp tác truyền thông / tài trợ? Hãy gửi tin nhắn cho chúng tôi!
+          </p>
+        </header>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-8);">
+          <div class="widget" style="padding: var(--space-6);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-3);">✈️</div>
+            <h3 style="margin-bottom: var(--space-2); font-size: var(--font-size-base);">Telegram Channel</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-4);">
+              Cập nhật mã giảm giá Shopee độc quyền và deal hoa hồng 20% mỗi ngày.
+            </p>
+            <a href="https://t.me/" target="_blank" rel="noopener" class="btn btn--outline btn--sm">
+              Tham Gia Telegram →
+            </a>
+          </div>
+
+          <div class="widget" style="padding: var(--space-6);">
+            <div style="font-size: 2rem; margin-bottom: var(--space-3);">📧</div>
+            <h3 style="margin-bottom: var(--space-2); font-size: var(--font-size-base);">Email Hỗ Trợ</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-4);">
+              Giải đáp thắc mắc chuyên sâu và yêu cầu booking quảng cáo.
+            </p>
+            <a href="mailto:contact@shopeeaffvn.com" class="btn btn--outline btn--sm">
+              contact@shopeeaffvn.com
+            </a>
+          </div>
+        </div>
+
+        <form 
+          class="comment-form" 
+          id="contactForm"
+          onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.'); this.reset();"
+        >
+          <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--space-2);">Gửi Tin Nhắn Trực Tiếp</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+            <input type="text" required class="widget__input" placeholder="Họ và tên..." aria-label="Tên của bạn" />
+            <input type="email" required class="widget__input" placeholder="Email của bạn..." aria-label="Email của bạn" />
+          </div>
+          <input type="text" required class="widget__input" placeholder="Tiêu đề..." aria-label="Tiêu đề tin nhắn" />
+          <textarea required placeholder="Nội dung cần trao đổi hoặc hỗ trợ..." rows="5" aria-label="Nội dung tin nhắn"></textarea>
+          <button type="submit" class="btn btn--primary" style="align-self: flex-start;">
+            Gửi Tin Nhắn 🚀
+          </button>
+        </form>
+      </div>
+
+      <aside class="content-sidebar">
+        <SidebarProof />
+        <SidebarNewsletter />
+      </aside>
+    </section>
+  </div>
+</BaseLayout>

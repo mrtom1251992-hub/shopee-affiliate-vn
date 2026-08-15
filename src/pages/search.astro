@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import NewsLayout from '../layouts/NewsLayout.astro';
+import Breadcrumb from '../components/seo/Breadcrumb.astro';
+
+const allPosts = await getCollection('bai-viet');
+const searchIndex = allPosts.map(p => ({
+  slug: p.slug,
+  title: p.data.title,
+  description: p.data.description,
+  categoryName: p.data.categoryName,
+  category: p.data.category,
+  date: new Intl.DateTimeFormat('vi-VN', { day: 'numeric', month: 'numeric', year: 'numeric' }).format(p.data.publishDate),
+}));
+---
+
+<NewsLayout 
+  title="Tìm Kiếm Bài Viết — ShopeeAffVN"
+  description="Tìm kiếm nhanh các bài viết, hướng dẫn, case study và tài liệu về Shopee Affiliate."
+  showFaq={false}
+>
+  <div class="container" style="padding-top: var(--space-6);">
+    <Breadcrumb items={[{ name: "Tìm Kiếm" }]} />
+  </div>
+
+  <div class="section-header">
+    <h1 class="section-header__title" style="font-size: var(--font-size-2xl);">
+      Tìm Kiếm Bài Viết Shopee Affiliate
+    </h1>
+  </div>
+
+  <div style="margin-bottom: var(--space-8);">
+    <input 
+      type="search" 
+      id="liveSearchInput"
+      class="widget__input"
+      style="padding: var(--space-4) var(--space-6); font-size: var(--font-size-base); border-radius: var(--radius-full);"
+      placeholder="🔍 Nhập từ khóa cần tìm (ví dụ: tiktok, hoa hồng, đăng ký, case study...)"
+      autofocus
+    />
+  </div>
+
+  <div id="searchResultsCount" style="margin-bottom: var(--space-4); font-size: var(--font-size-sm); color: var(--text-secondary);">
+    Hiển thị tất cả {searchIndex.length} bài viết
+  </div>
+
+  <div class="article-grid" id="searchResultsGrid">
+    {searchIndex.map((post) => (
+      <article class="card search-item" data-title={post.title.toLowerCase()} data-desc={post.description.toLowerCase()}>
+        <div class="card__image">🛍</div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span class="card__category">{post.categoryName}</span>
+            <span class="card__date">{post.date}</span>
+          </div>
+          <h3 class="card__title">
+            <a href={`/bai-viet/${post.slug}`}>{post.title}</a>
+          </h3>
+          <p class="card__excerpt">{post.description}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div id="noResultsMsg" style="display: none; padding: var(--space-12); text-align: center; background: var(--surface-card); border-radius: var(--radius-lg); border: 1px solid var(--color-neutral-200);">
+    <p style="font-size: var(--font-size-lg); margin-bottom: var(--space-4);">Không tìm thấy bài viết nào phù hợp với từ khóa.</p>
+    <p style="color: var(--text-secondary);">Hãy thử tìm kiếm với từ khóa khác như "TikTok", "hoa hồng", "đăng ký".</p>
+  </div>
+
+  <script is:inline define:vars={{ searchIndex }}>
+    const input = document.getElementById('liveSearchInput');
+    const items = document.querySelectorAll('.search-item');
+    const countDisplay = document.getElementById('searchResultsCount');
+    const noResults = document.getElementById('noResultsMsg');
+
+    // Read query parameter from URL if any
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+    if (query) {
+      input.value = query;
+      filterPosts(query);
+    }
+
+    input.addEventListener('input', (e) => {
+      filterPosts(e.target.value);
+    });
+
+    function filterPosts(keyword) {
+      const q = keyword.trim().toLowerCase();
+      let matchCount = 0;
+
+      items.forEach(item => {
+        const title = item.getAttribute('data-title') || '';
+        const desc = item.getAttribute('data-desc') || '';
+        if (!q || title.includes(q) || desc.includes(q)) {
+          item.style.display = 'flex';
+          matchCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      countDisplay.textContent = `Tìm thấy ${matchCount} bài viết phù hợp`;
+      noResults.style.display = matchCount === 0 ? 'block' : 'none';
+    }
+  </script>
+</NewsLayout>

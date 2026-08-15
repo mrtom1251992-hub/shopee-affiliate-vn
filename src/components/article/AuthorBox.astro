@@ -1,0 +1,18 @@
+---
+interface Props {
+  author?: string;
+}
+
+const { author = "Admin ShopeeAffVN" } = Astro.props;
+---
+
+<div class="author-box">
+  <div class="author-box__avatar">S</div>
+  <div>
+    <div class="author-box__name">Tác giả: {author}</div>
+    <p class="author-box__bio">
+      Affiliate Marketer với hơn 5 năm kinh nghiệm thực chiến trên sàn Shopee và TikTok Shop.
+      Đam mê chia sẻ kiến thức, case study thực tế và chiến lược kiếm tiền thụ động bền vững.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  featuredPost: CollectionEntry<'bai-viet'>;
+  secondaryPosts: CollectionEntry<'bai-viet'>[];
+}
+
+const { featuredPost, secondaryPosts } = Astro.props;
+
+const formatPostDate = (date: Date) => {
+  return new Intl.DateTimeFormat('vi-VN', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric'
+  }).format(date);
+};
+---
+
+<section class="hero" id="heroSection" aria-label="Bài viết nổi bật về Shopee Affiliate">
+  <div class="container">
+    <div class="section-header">
+      <h1 class="section-header__title">Kinh Nghiệm Shopee Affiliate Nổi Bật</h1>
+      <a href="/bai-viet" class="btn btn--ghost btn--sm">Xem tất cả →</a>
+    </div>
+
+    <div class="hero__grid">
+      <!-- Main Featured Post (Left Column) -->
+      <article class="card card--hero hero__featured" id="featuredPost">
+        <div class="card__image" role="img" aria-label={featuredPost.data.title}>
+          🔥
+        </div>
+        <div class="card__body">
+          <div class="card__meta">
+            <span class="badge badge--primary">{featuredPost.data.hotBadge || '🔥 Hot'}</span>
+            <span class="card__category">{featuredPost.data.categoryName}</span>
+            <span class="card__date">{formatPostDate(featuredPost.data.publishDate)}</span>
+          </div>
+          
+          <h2 class="card__title">
+            <a href={`/bai-viet/${featuredPost.slug}`}>{featuredPost.data.title}</a>
+          </h2>
+          
+          <p class="card__excerpt">{featuredPost.data.description}</p>
+          
+          <div class="card__footer">
+            <div class="card__author">
+              <div class="card__author-avatar">S</div>
+              <span>{featuredPost.data.author}</span>
+            </div>
+            <div class="card__stats">
+              <span>👁 {featuredPost.data.views.toLocaleString('vi-VN')}</span>
+              <span>💬 {featuredPost.data.commentsCount}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Secondary Featured Posts (Right Column) -->
+      <div class="hero__secondary">
+        {secondaryPosts.slice(0, 2).map((post) => (
+          <article class="card" id={`hero-${post.slug}`}>
+            <div class="card__image" role="img" aria-label={post.data.title}>
+              🛍
+            </div>
+            <div class="card__body">
+              <div class="card__meta">
+                {post.data.hotBadge && <span class="badge badge--success">{post.data.hotBadge}</span>}
+                <span class="card__category">{post.data.categoryName}</span>
+                <span class="card__date">{formatPostDate(post.data.publishDate)}</span>
+              </div>
+              
+              <h3 class="card__title" style="font-size: var(--font-size-base);">
+                <a href={`/bai-viet/${post.slug}`}>{post.data.title}</a>
+              </h3>
+              
+              <p class="card__excerpt">{post.data.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

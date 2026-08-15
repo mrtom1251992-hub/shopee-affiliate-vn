@@ -1,0 +1,22 @@
+---
+// Sidebar Newsletter Widget
+---
+
+<div class="widget widget--newsletter" id="widgetNewsletter">
+  <h3 class="widget__title">📬 Nhận Kinh Nghiệm Shopee</h3>
+  <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-4);">
+    Đăng ký nhận email chia sẻ case study, danh sách deal hoa hồng 20% và mẹo chạy traffic mỗi tuần.
+  </p>
+  <form class="widget__input-group" id="newsletterForm" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi tài liệu sớm nhất.'); this.reset();">
+    <input 
+      type="email" 
+      required
+      class="widget__input" 
+      placeholder="Email của bạn..." 
+      aria-label="Nhập email nhận bài viết" 
+    />
+    <button type="submit" class="btn btn--primary" style="width: 100%;">
+      Đăng Ký Nhận Bài Miễn Phí 🚀
+    </button>
+  </form>
+</div>

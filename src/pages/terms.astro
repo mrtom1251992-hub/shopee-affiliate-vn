@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/seo/Breadcrumb.astro';
+---
+
+<BaseLayout 
+  title="Điều Khoản Sử Dụng — ShopeeAffVN"
+  description="Các điều khoản và quy định khi truy cập, tham khảo kiến thức tại ShopeeAffVN."
+>
+  <div class="container container--narrow" style="padding-top: var(--space-6); padding-bottom: var(--space-16);">
+    <Breadcrumb items={[{ name: "Điều Khoản Sử Dụng" }]} />
+
+    <header class="article-header">
+      <h1 class="article-header__title">Điều Khoản Sử Dụng Website</h1>
+      <p class="article-header__lead">
+        Quy định và điều khoản sử dụng thông tin trên ShopeeAffVN.
+      </p>
+    </header>
+
+    <div class="prose">
+      <h2>1. Bản Quyền Nội Dung</h2>
+      <p>
+        Toàn bộ bài viết, kịch bản video mẫu, hình ảnh hướng dẫn và tài liệu phân tích trên ShopeeAffVN 
+        thuộc quyền sở hữu trí tuệ của ShopeeAffVN. Bạn được phép chia sẻ trích đoạn kèm theo liên kết nguồn rõ ràng, 
+        nhưng không được phép sao chép toàn bộ để thương mại hóa hoặc giả mạo.
+      </p>
+
+      <h2>2. Tuyên Bố Miễn Trừ Trách Nhiệm Về Thu Nhập</h2>
+      <p>
+        Các case study, số liệu hoa hồng và doanh thu chia sẻ trên website là kết quả thực tế của tác giả và học viên 
+        dựa trên kỹ năng và nỗ lực cá nhân. Chúng tôi không cam kết hoặc bảo đảm rằng bạn sẽ đạt được kết quả tương tự 
+        nếu không đầu tư thời gian học tập và thực hành nghiêm túc.
+      </p>
+
+      <h2>3. Quy Định Bình Luận</h2>
+      <p>
+        Người dùng khi tham gia bình luận không được: phát tán nội dung đồi trụy, xúc phạm người khác, 
+        quảng cáo dịch vụ bất hợp pháp hoặc spam link độc hại. Ban quản trị có quyền xóa bất kỳ bình luận nào vi phạm mà không cần thông báo trước.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

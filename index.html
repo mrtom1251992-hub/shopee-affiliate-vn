@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO — Tối ưu cho "Shopee Affiliate" -->
+  <title>Kinh Nghiệm Shopee Affiliate 2026 — Hướng Dẫn Kiếm Tiền Hoa Hồng Shopee Từ A-Z</title>
+  <meta name="description" content="Chia sẻ kinh nghiệm thực chiến Shopee Affiliate Marketing 2026: cách đăng ký, chọn sản phẩm, tạo content, chạy traffic và tối ưu hoa hồng Shopee hiệu quả nhất." />
+  <meta name="keywords" content="shopee affiliate, kinh nghiệm shopee affiliate, kiếm tiền shopee affiliate, hoa hồng shopee, shopee affiliate 2026, cách làm shopee affiliate, shopee affiliate marketing" />
+  <meta name="author" content="ShopeeAffVN" />
+  <link rel="canonical" href="https://shopeeaffvn.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kinh Nghiệm Shopee Affiliate 2026 — Kiếm Tiền Hoa Hồng Shopee Từ A-Z" />
+  <meta property="og:description" content="Tổng hợp kinh nghiệm, case study, hướng dẫn chi tiết làm Shopee Affiliate Marketing. Từ cách đăng ký đến scale thu nhập 50 triệu/tháng." />
+  <meta property="og:url" content="https://shopeeaffvn.com/" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Outfit:wght@700;900&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets — Layered, Token-based -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+
+  <!-- JSON-LD Structured Data (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ShopeeAffVN — Kinh Nghiệm Shopee Affiliate",
+    "url": "https://shopeeaffvn.com/",
+    "description": "Chia sẻ kinh nghiệm thực chiến Shopee Affiliate Marketing 2026",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://shopeeaffvn.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ══════════════════════════════════════
+         READING PROGRESS BAR
+         ══════════════════════════════════════ -->
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+    <!-- ══════════════════════════════════════
+         NAVBAR
+         ══════════════════════════════════════ -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+
+        <!-- Logo -->
+        <a href="/" class="navbar__logo" id="logo" title="ShopeeAffVN — Kinh nghiệm Shopee Affiliate">
+          <span class="navbar__logo-icon">S</span>
+          ShopeeAffVN
+        </a>
+
+        <!-- Navigation — Các chuyên mục con của Shopee Affiliate -->
+        <nav class="navbar__nav" id="mainNav" aria-label="Điều hướng chính">
+          <a href="#huong-dan" class="navbar__link navbar__link--active">Hướng Dẫn</a>
+          <a href="#case-study" class="navbar__link">Case Study</a>
+          <a href="#chon-san-pham" class="navbar__link">Chọn Sản Phẩm</a>
+          <a href="#tao-content" class="navbar__link">Tạo Content</a>
+          <a href="#traffic" class="navbar__link">Traffic & SEO</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="navbar__actions">
+          <button class="navbar__search" id="searchToggle" aria-label="Tìm kiếm bài viết về Shopee Affiliate">
+            🔍 <span>Tìm kiếm...</span>
+          </button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Chuyển đổi Dark/Light mode">
+            🌙
+          </button>
+          <!-- Hamburger Button (mobile only) -->
+          <button class="hamburger" id="hamburgerBtn" aria-label="Mở menu" aria-expanded="false">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ══════════════════════════════════════
+         MOBILE MENU DRAWER
+         ══════════════════════════════════════ -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu__backdrop" id="menuBackdrop"></div>
+      <div class="mobile-menu__drawer">
+
+        <!-- Drawer Header -->
+        <div class="mobile-menu__header">
+          <a href="/" class="navbar__logo">
+            <span class="navbar__logo-icon">S</span>
+            ShopeeAffVN
+          </a>
+          <button class="mobile-menu__close" id="menuCloseBtn" aria-label="Đóng menu">
+            ✕
+          </button>
+        </div>
+
+        <!-- Search -->
+        <div class="mobile-menu__search">
+          <input type="search" class="widget__input" placeholder="🔍 Tìm kiếm bài viết..." aria-label="Tìm kiếm" />
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="mobile-menu__nav" aria-label="Menu di động">
+          <a href="#huong-dan" class="mobile-menu__link mobile-menu__link--active">
+            <span class="mobile-menu__link-icon">📖</span>
+            Hướng Dẫn
+          </a>
+          <a href="#case-study" class="mobile-menu__link">
+            <span class="mobile-menu__link-icon">📊</span>
+            Case Study
+          </a>
+          <a href="#chon-san-pham" class="mobile-menu__link">
+            <span class="mobile-menu__link-icon">🛍</span>
+            Chọn Sản Phẩm
+          </a>
+          <a href="#tao-content" class="mobile-menu__link">
+            <span class="mobile-menu__link-icon">✏️</span>
+            Tạo Content
+          </a>
+          <a href="#traffic" class="mobile-menu__link">
+            <span class="mobile-menu__link-icon">🚀</span>
+            Traffic & SEO
+          </a>
+        </nav>
+
+        <!-- Drawer Footer -->
+        <div class="mobile-menu__footer">
+          <a href="#" class="btn btn--primary" style="width: 100%;">Đăng Ký Shopee Affiliate →</a>
+          <div class="mobile-menu__socials">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="TikTok">🎵</a>
+            <a href="#" aria-label="Telegram">✈️</a>
+            <a href="#" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MAIN CONTENT
+         ══════════════════════════════════════ -->
+    <main class="page__content">
+
+      <!-- ── Affiliate Disclosure Banner ── -->
+      <section class="disclosure-section" aria-label="Thông báo affiliate">
+        <div class="container">
+          <div class="disclosure" id="disclosure">
+            <span class="disclosure__icon">ℹ️</span>
+            <p>
+              <strong>Minh bạch:</strong> Các link đăng ký <strong>Shopee Affiliate</strong> trong bài viết là link giới thiệu.
+              Nếu bạn đăng ký qua link, mình nhận được hoa hồng nhỏ — hoàn toàn không ảnh hưởng đến quyền lợi của bạn.
+              Cảm ơn bạn đã ủng hộ!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── HERO SECTION — Bài Viết Nổi Bật Về Shopee Affiliate ── -->
+      <section class="hero" id="heroSection" aria-label="Bài viết nổi bật về Shopee Affiliate">
+        <div class="container">
+
+          <div class="section-header">
+            <h1 class="section-header__title">Kinh Nghiệm Shopee Affiliate Nổi Bật</h1>
+            <a href="#" class="btn btn--ghost btn--sm">Xem tất cả →</a>
+          </div>
+
+          <div class="hero__grid">
+
+            <!-- Featured Card — Bài chủ lực SEO -->
+            <article class="card card--hero hero__featured" id="featuredPost">
+              <div class="card__image" role="img" aria-label="Hướng dẫn Shopee Affiliate từ A đến Z"></div>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span class="badge badge--primary">🔥 Bài Chủ Lực</span>
+                  <span class="card__category">Hướng Dẫn Shopee Affiliate</span>
+                  <span class="card__date">15 Tháng 8, 2026</span>
+                </div>
+                <h2 class="card__title">Shopee Affiliate Là Gì? Hướng Dẫn Đăng Ký & Kiếm 50 Triệu/Tháng Từ A-Z (2026)</h2>
+                <p class="card__excerpt">
+                  Bài viết tổng hợp chi tiết nhất về chương trình Shopee Affiliate: cách đăng ký tài khoản, 
+                  chọn sản phẩm hoa hồng cao, tạo link affiliate, chạy traffic và tối ưu tỷ lệ chuyển đổi 
+                  để đạt thu nhập ổn định từ hoa hồng Shopee...
+                </p>
+                <div class="card__footer">
+                  <div class="card__author">
+                    <div class="card__author-avatar"></div>
+                    <span>Admin</span>
+                  </div>
+                  <div class="card__stats">
+                    <span>👁 24.8K</span>
+                    <span>💬 156</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Secondary Cards -->
+            <div class="hero__secondary">
+              <article class="card" id="heroCard2">
+                <div class="card__image" role="img" aria-label="Cách chọn sản phẩm Shopee Affiliate hoa hồng cao"></div>
+                <div class="card__body">
+                  <div class="card__meta">
+                    <span class="card__category">Chọn Sản Phẩm</span>
+                    <span class="card__date">14 Tháng 8, 2026</span>
+                  </div>
+                  <h3 class="card__title">Bí Quyết Chọn Sản Phẩm Shopee Affiliate Hoa Hồng Cao: 5 Tiêu Chí Vàng</h3>
+                  <p class="card__excerpt">Không phải sản phẩm nào trên Shopee cũng đáng promote. Đây là 5 tiêu chí chọn sản phẩm có tỷ lệ chuyển đổi cao nhất...</p>
+                </div>
+              </article>
+
+              <article class="card" id="heroCard3">
+                <div class="card__image" role="img" aria-label="Case study Shopee Affiliate 50 triệu"></div>
+                <div class="card__body">
+                  <div class="card__meta">
+                    <span class="badge badge--success">Case Study</span>
+                    <span class="card__category">Kinh Nghiệm Thực Chiến</span>
+                    <span class="card__date">13 Tháng 8, 2026</span>
+                  </div>
+                  <h3 class="card__title">Case Study: Từ 0 Đến 52 Triệu Hoa Hồng Shopee/Tháng Trong 6 Tháng</h3>
+                  <p class="card__excerpt">Chia sẻ hành trình thực chiến, từng bước xây kênh, những sai lầm tốn tiền và bài học xương máu...</p>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CATEGORY TABS — Phân theo nguồn traffic cho Shopee Affiliate ── -->
+      <section class="tabs-section" aria-label="Phân loại bài viết">
+        <div class="container">
+          <div class="tabs" id="categoryTabs" role="tablist">
+            <button class="tab tab--active" role="tab" aria-selected="true">📋 Tất Cả</button>
+            <button class="tab" role="tab">📝 Hướng Dẫn Cơ Bản</button>
+            <button class="tab" role="tab">🎵 Traffic TikTok</button>
+            <button class="tab" role="tab">📘 Traffic Facebook</button>
+            <button class="tab" role="tab">🔍 Traffic SEO / Blog</button>
+            <button class="tab" role="tab">🛍 Chọn Sản Phẩm</button>
+            <button class="tab" role="tab">📊 Phân Tích & Báo Cáo</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MAIN CONTENT AREA (Articles + Sidebar) ── -->
+      <section class="content-area container" id="mainContent">
+
+        <!-- ── Left: Danh sách bài viết Shopee Affiliate ── -->
+        <div class="content-main">
+
+          <div class="section-header">
+            <h2 class="section-header__title">Bài Viết Shopee Affiliate Mới Nhất</h2>
+            <a href="#" class="btn btn--outline btn--sm">Xem thêm →</a>
+          </div>
+
+          <div class="article-grid" id="articleGrid">
+
+            <!-- Article 1 — Đăng ký -->
+            <article class="card" id="article1">
+              <div class="card__image" role="img" aria-label="Cách đăng ký Shopee Affiliate 2026"></div>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span class="card__category">Hướng Dẫn Cơ Bản</span>
+                  <span class="card__date">12 Tháng 8</span>
+                </div>
+                <h3 class="card__title">Cách Đăng Ký Shopee Affiliate 2026: Điều Kiện, Thủ Tục & Mẹo Duyệt Nhanh</h3>
+                <p class="card__excerpt">Hướng dẫn từng bước đăng ký tài khoản Shopee Affiliate, điều kiện phê duyệt, và 3 mẹo để được duyệt trong 24h...</p>
+                <div class="card__footer">
+                  <div class="card__author">
+                    <div class="card__author-avatar"></div>
+                    <span>Admin</span>
+                  </div>
+                  <div class="card__stats">
+                    <span>👁 18.3K</span>
+                    <span>💬 92</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 2 — TikTok Traffic -->
+            <article class="card" id="article2">
+              <div class="card__image" role="img" aria-label="TikTok traffic cho Shopee Affiliate"></div>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span class="badge badge--primary">Trending</span>
+                  <span class="card__category">Traffic TikTok</span>
+                  <span class="card__date">11 Tháng 8</span>
+                </div>
+                <h3 class="card__title">Chạy Shopee Affiliate Bằng TikTok: Mẫu Video Triệu View Không Cần Lộ Mặt</h3>
+                <p class="card__excerpt">5 dạng video TikTok convert cao nhất cho Shopee Affiliate, kèm script mẫu và cách edit bằng CapCut Pro...</p>
+                <div class="card__footer">
+                  <div class="card__author">
+                    <div class="card__author-avatar"></div>
+                    <span>Admin</span>
+                  </div>
+                  <div class="card__stats">
+                    <span>👁 15.6K</span>
+                    <span>💬 78</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 3 — Bảng hoa hồng -->
+            <article class="card" id="article3">
+              <div class="card__image" role="img" aria-label="Bảng tỷ lệ hoa hồng Shopee Affiliate 2026"></div>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span class="badge badge--accent">Cập Nhật</span>
+                  <span class="card__category">Phân Tích</span>
+                  <span class="card__date">10 Tháng 8</span>
+                </div>
+                <h3 class="card__title">Bảng Tỷ Lệ Hoa Hồng Shopee Affiliate 2026: Ngành Nào Cao Nhất?</h3>
+                <p class="card__excerpt">Tổng hợp bảng hoa hồng mới nhất theo từng ngành hàng trên Shopee, phân tích ngành nào đáng tập trung nhất...</p>
+                <div class="card__footer">
+                  <div class="card__author">
+                    <div class="card__author-avatar"></div>
+                    <span>Admin</span>
+                  </div>
+                  <div class="card__stats">
+                    <span>👁 21.4K</span>
+                    <span>💬 114</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 4 — SEO Blog -->
+            <article class="card" id="article4">
+              <div class="card__image" role="img" aria-label="SEO blog cho Shopee Affiliate"></div>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span class="card__category">Traffic SEO</span>
+                  <span class="card__date">9 Tháng 8</span>
+                </div>
+                <h3 class="card__title">Xây Blog SEO Cho Shopee Affiliate: Chiến Lược Keyword & Content Cluster</h3>
+                <p class="card__excerpt">Hướng dẫn tìm keyword review sản phẩm Shopee, xây content cluster, và cách chèn affiliate link tự nhiên cho Google...</p>
+                <div class="card__footer">
+                  <div class="card__author">
+                    <div class="card__author-avatar"></div>
+                    <span>Admin</span>
+                  </div>
+                  <div class="card__stats">
+                    <span>👁 9.2K</span>
+                    <span>💬 47</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 5 — Facebook traffic -->
+            <article class="card" id="article5">
+              <div class="card__image" role="img" aria-label="Facebook Ads cho Shopee Affiliate"></div>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span class="card__category">Traffic Facebook</span>
+                  <span class="card__date">8 Tháng 8</span>
+                </div>
+                <h3 class="card__title">Chạy Facebook Ads Cho Link Shopee Affiliate: Tối Ưu CPC Dưới 500đ</h3>
+                <p class="card__excerpt">Setup campaign, targeting, creative testing — kinh nghiệm chạy ads budget 200K/ngày vẫn có lãi với Shopee Affiliate...</p>
+                <div class="card__footer">
+                  <div class="card__author">
+                    <div class="card__author-avatar"></div>
+                    <span>Admin</span>
+                  </div>
+                  <div class="card__stats">
+                    <span>👁 7.8K</span>
+                    <span>💬 53</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 6 — Sai lầm -->
+            <article class="card" id="article6">
+              <div class="card__image" role="img" aria-label="Sai lầm khi làm Shopee Affiliate"></div>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span class="badge badge--accent">⚠️ Tránh Ngay</span>
+                  <span class="card__category">Kinh Nghiệm</span>
+                  <span class="card__date">7 Tháng 8</span>
+                </div>
+                <h3 class="card__title">7 Sai Lầm Phổ Biến Khi Làm Shopee Affiliate Khiến Bạn Mất Tiền Oan</h3>
+                <p class="card__excerpt">Từ chọn sai ngành hàng, spam link, đến không track conversion — những bài học đắt giá mình đã trải qua...</p>
+                <div class="card__footer">
+                  <div class="card__author">
+                    <div class="card__author-avatar"></div>
+                    <span>Admin</span>
+                  </div>
+                  <div class="card__stats">
+                    <span>👁 13.5K</span>
+                    <span>💬 89</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- ── CTA Box — Đăng ký Shopee Affiliate ── -->
+          <div class="cta-box" id="ctaBox" style="margin-top: var(--space-10);">
+            <h3 class="cta-box__title">🛒 Đăng Ký Shopee Affiliate — Bắt Đầu Kiếm Hoa Hồng Ngay!</h3>
+            <p class="cta-box__desc">
+              Chương trình Shopee Affiliate hoàn toàn miễn phí. Đăng ký qua link bên dưới
+              để nhận thêm hướng dẫn chi tiết + bộ tài liệu chọn sản phẩm hoa hồng cao.
+            </p>
+            <a href="#" class="btn btn--lg" id="ctaShopeeSignup">Đăng Ký Shopee Affiliate Miễn Phí →</a>
+          </div>
+
+        </div>
+
+        <!-- ── Right: Sidebar ── -->
+        <aside class="content-sidebar" id="sidebar">
+
+          <!-- Widget: Lộ Trình Shopee Affiliate -->
+          <div class="widget" id="widgetRoadmap">
+            <h3 class="widget__title">🗺 Lộ Trình Shopee Affiliate</h3>
+            <div class="widget__list">
+              <div class="widget__item">
+                <div class="widget__item-icon">1️⃣</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">Đăng ký tài khoản</div>
+                  <div class="widget__item-detail">Điều kiện & mẹo duyệt nhanh</div>
+                </div>
+              </div>
+              <div class="widget__item">
+                <div class="widget__item-icon">2️⃣</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">Chọn sản phẩm hoa hồng cao</div>
+                  <div class="widget__item-detail">5 tiêu chí vàng chọn deal hot</div>
+                </div>
+              </div>
+              <div class="widget__item">
+                <div class="widget__item-icon">3️⃣</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">Tạo content & chèn link</div>
+                  <div class="widget__item-detail">Video, bài viết, review sản phẩm</div>
+                </div>
+              </div>
+              <div class="widget__item">
+                <div class="widget__item-icon">4️⃣</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">Chạy traffic & tối ưu</div>
+                  <div class="widget__item-detail">TikTok, Facebook, SEO Blog</div>
+                </div>
+              </div>
+              <div class="widget__item">
+                <div class="widget__item-icon">5️⃣</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">Scale & nhân bản</div>
+                  <div class="widget__item-detail">Từ 5tr → 50tr/tháng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget: Hoa Hồng Shopee (Proof) -->
+          <div class="widget" id="widgetProof">
+            <h3 class="widget__title">💰 Hoa Hồng Shopee Của Mình</h3>
+            <div class="proof-box">
+              <div class="proof-box__item">
+                <div class="proof-box__value">156M</div>
+                <div class="proof-box__label">Tổng hoa hồng Shopee</div>
+              </div>
+              <div class="proof-box__item">
+                <div class="proof-box__value">52M</div>
+                <div class="proof-box__label">Tháng cao nhất</div>
+              </div>
+              <div class="proof-box__item">
+                <div class="proof-box__value">12.4K</div>
+                <div class="proof-box__label">Đơn Shopee chuyển đổi</div>
+              </div>
+              <div class="proof-box__item">
+                <div class="proof-box__value">3.2%</div>
+                <div class="proof-box__label">Tỷ lệ conversion</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget: Tool hỗ trợ Shopee Affiliate -->
+          <div class="widget" id="widgetTools">
+            <h3 class="widget__title">🛠 Tool Hỗ Trợ Shopee Affiliate</h3>
+            <div class="widget__list">
+              <div class="widget__item">
+                <div class="widget__item-icon">🔗</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">Shopee Link Generator</div>
+                  <div class="widget__item-detail">Tạo link affiliate nhanh</div>
+                </div>
+                <span class="badge badge--primary">FREE</span>
+              </div>
+              <div class="widget__item">
+                <div class="widget__item-icon">📊</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">Shopee Trending Tool</div>
+                  <div class="widget__item-detail">Tìm sản phẩm đang hot</div>
+                </div>
+              </div>
+              <div class="widget__item">
+                <div class="widget__item-icon">🎬</div>
+                <div class="widget__item-text">
+                  <div class="widget__item-name">CapCut Pro</div>
+                  <div class="widget__item-detail">Edit video review sản phẩm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget: Newsletter -->
+          <div class="widget widget--newsletter" id="widgetNewsletter">
+            <h3 class="widget__title">📬 Nhận Kinh Nghiệm Shopee Affiliate</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-4);">
+              Mỗi tuần mình gửi 1 email chia sẻ kinh nghiệm Shopee Affiliate thực chiến. Miễn phí, không spam.
+            </p>
+            <form class="widget__input-group" id="newsletterForm">
+              <input type="email" class="widget__input" placeholder="Email của bạn..." aria-label="Nhập email đăng ký nhận bài viết Shopee Affiliate" />
+              <button type="submit" class="btn btn--primary" style="width: 100%;">Đăng Ký Nhận Bài 🛒</button>
+            </form>
+          </div>
+
+        </aside>
+
+      </section>
+
+      <!-- ── FAQ Section — SEO thêm keywords ── -->
+      <section class="section section--muted" id="faqSection" aria-label="Câu hỏi thường gặp về Shopee Affiliate">
+        <div class="container container--narrow">
+          <div class="section-header">
+            <h2 class="section-header__title">Câu Hỏi Thường Gặp Về Shopee Affiliate</h2>
+          </div>
+
+          <div class="faq-list" id="faqList">
+
+            <details class="faq-item" id="faq1">
+              <summary class="faq-item__question">Shopee Affiliate là gì?</summary>
+              <div class="faq-item__answer">
+                <p>
+                  <strong>Shopee Affiliate</strong> là chương trình tiếp thị liên kết của Shopee, cho phép bạn kiếm hoa hồng 
+                  khi giới thiệu sản phẩm Shopee cho người mua. Bạn chia sẻ link sản phẩm Shopee, 
+                  khi có người mua qua link đó — bạn nhận được % hoa hồng từ giá trị đơn hàng.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item" id="faq2">
+              <summary class="faq-item__question">Đăng ký Shopee Affiliate có mất phí không?</summary>
+              <div class="faq-item__answer">
+                <p>
+                  Hoàn toàn <strong>miễn phí</strong>. Bạn chỉ cần có tài khoản Shopee và đăng ký qua 
+                  chương trình Shopee Affiliate. Không cần đặt cọc, không phí hàng tháng.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item" id="faq3">
+              <summary class="faq-item__question">Hoa hồng Shopee Affiliate bao nhiêu phần trăm?</summary>
+              <div class="faq-item__answer">
+                <p>
+                  Tỷ lệ hoa hồng Shopee Affiliate dao động từ <strong>2% đến 10%</strong> tùy ngành hàng. 
+                  Các ngành như Thời trang, Làm đẹp, Đồ gia dụng thường có hoa hồng cao nhất (8-10%). 
+                  Điện tử, công nghệ thường thấp hơn (2-4%).
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item" id="faq4">
+              <summary class="faq-item__question">Làm Shopee Affiliate cần những gì?</summary>
+              <div class="faq-item__answer">
+                <p>
+                  Bạn cần: (1) Tài khoản Shopee đã xác minh, (2) Kênh traffic để chia sẻ link 
+                  (TikTok, Facebook, Blog, YouTube, Telegram...), (3) Kỹ năng tạo content review sản phẩm. 
+                  Không cần vốn, không cần kho hàng.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item" id="faq5">
+              <summary class="faq-item__question">Kiếm được bao nhiêu tiền từ Shopee Affiliate?</summary>
+              <div class="faq-item__answer">
+                <p>
+                  Thu nhập phụ thuộc vào traffic và tỷ lệ chuyển đổi. Người mới có thể kiếm 
+                  <strong>2-5 triệu/tháng</strong>, người có kinh nghiệm và traffic tốt có thể đạt 
+                  <strong>20-50 triệu/tháng</strong> hoặc hơn. Blog mình chia sẻ chi tiết case study thực tế.
+                </p>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════
+         FOOTER
+         ══════════════════════════════════════ -->
+    <footer class="footer" id="footer">
+      <div class="container">
+
+        <div class="footer__grid">
+
+          <!-- Brand Column -->
+          <div class="footer__col">
+            <a href="/" class="navbar__logo" style="color: var(--color-primary-400);">
+              <span class="navbar__logo-icon">S</span>
+              ShopeeAffVN
+            </a>
+            <p class="footer__brand-desc">
+              Trang chia sẻ kinh nghiệm Shopee Affiliate Marketing thực chiến.
+              Từ cách đăng ký, chọn sản phẩm, tạo content, chạy traffic đến scale thu nhập —
+              tất cả miễn phí, dựa trên kinh nghiệm thực tế.
+            </p>
+          </div>
+
+          <!-- Chuyên mục Shopee Affiliate -->
+          <div class="footer__col">
+            <h4 class="footer__heading">Shopee Affiliate</h4>
+            <nav class="footer__links">
+              <a href="#" class="footer__link">Hướng Dẫn Đăng Ký</a>
+              <a href="#" class="footer__link">Chọn Sản Phẩm Hoa Hồng Cao</a>
+              <a href="#" class="footer__link">Bảng Hoa Hồng 2026</a>
+              <a href="#" class="footer__link">Case Study Thực Chiến</a>
+              <a href="#" class="footer__link">Sai Lầm Cần Tránh</a>
+            </nav>
+          </div>
+
+          <!-- Nguồn Traffic -->
+          <div class="footer__col">
+            <h4 class="footer__heading">Nguồn Traffic</h4>
+            <nav class="footer__links">
+              <a href="#" class="footer__link">TikTok Shopee Affiliate</a>
+              <a href="#" class="footer__link">Facebook Ads</a>
+              <a href="#" class="footer__link">SEO Blog Review</a>
+              <a href="#" class="footer__link">YouTube Review</a>
+              <a href="#" class="footer__link">Telegram / Zalo Group</a>
+            </nav>
+          </div>
+
+          <!-- Liên hệ -->
+          <div class="footer__col">
+            <h4 class="footer__heading">Liên Hệ</h4>
+            <nav class="footer__links">
+              <a href="#" class="footer__link">Giới Thiệu</a>
+              <a href="#" class="footer__link">Chính Sách Bảo Mật</a>
+              <a href="#" class="footer__link">Điều Khoản Sử Dụng</a>
+              <a href="#" class="footer__link">Hợp Tác / Quảng Cáo</a>
+              <a href="#" class="footer__link">Telegram Channel</a>
+            </nav>
+          </div>
+
+        </div>
+
+        <div class="footer__bottom">
+          <span>© 2026 ShopeeAffVN — Chia sẻ kinh nghiệm Shopee Affiliate Marketing. Mọi quyền được bảo lưu.</span>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="footer__social-link" aria-label="TikTok">🎵</a>
+            <a href="#" class="footer__social-link" aria-label="Telegram">✈️</a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+       ══════════════════════════════════════ -->
+  <script>
+    // ── Dark/Light Mode Toggle ──
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+
+    // ── Reading Progress Bar ──
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    });
+
+    // ── Category Tabs (visual toggle) ──
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('tab--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('tab--active');
+        tab.setAttribute('aria-selected', 'true');
+      });
+    });
+
+    // ── Mobile Menu ──
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const menuCloseBtn = document.getElementById('menuCloseBtn');
+    const mobileLinks = document.querySelectorAll('.mobile-menu__link');
+
+    function openMenu() {
+      mobileMenu.classList.add('mobile-menu--open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburgerBtn.classList.add('hamburger--active');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('mobile-menu--open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburgerBtn.classList.remove('hamburger--active');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('mobile-menu--open');
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    menuBackdrop.addEventListener('click', closeMenu);
+    menuCloseBtn.addEventListener('click', closeMenu);
+
+    // Close on link click
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
+
+</body>
+</html>

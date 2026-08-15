@@ -1,0 +1,44 @@
+---
+// SEO FAQ Section Component
+const faqs = [
+  {
+    question: "Shopee Affiliate là gì?",
+    answer: "Shopee Affiliate là chương trình tiếp thị liên kết chính thức của Shopee, cho phép bạn kiếm hoa hồng khi giới thiệu sản phẩm có trên Shopee cho người mua. Bạn chia sẻ link sản phẩm, khi có người mua qua link đó — bạn nhận được 2% đến 20% hoa hồng từ giá trị đơn hàng."
+  },
+  {
+    question: "Đăng ký Shopee Affiliate có mất phí không?",
+    answer: "Hoàn toàn miễn phí 100%. Bạn chỉ cần có tài khoản Shopee và đăng ký qua cổng affiliate.shopee.vn. Bạn không cần đặt cọc, không mất phí duy trì tài khoản hàng tháng."
+  },
+  {
+    question: "Tỷ lệ hoa hồng Shopee Affiliate năm 2026 là bao nhiêu?",
+    answer: "Hoa hồng Shopee bao gồm 2 phần: Hoa hồng Sàn (từ 2% đến 10% tùy ngành hàng) và Hoa hồng thưởng thêm từ Nhà Bán Hàng (Seller Extra Commission lên đến 10% - 20%). Tổng hoa hồng có thể đạt từ 12% đến 30% cho mỗi đơn hàng."
+  },
+  {
+    question: "Người mới không có kinh nghiệm và vốn có làm được không?",
+    answer: "Hoàn toàn làm được. Bạn không cần vốn nhập hàng, không cần kho bãi hay đóng gói. Bạn chỉ cần học cách tạo nội dung video ngắn TikTok hoặc viết bài chia sẻ kinh nghiệm trên mạng xã hội."
+  },
+  {
+    question: "Bao lâu thì nhận được tiền hoa hồng từ Shopee?",
+    answer: "Shopee tổng kết doanh thu hoa hồng theo chu kỳ hàng tháng. Tiền hoa hồng sẽ được đối soát và chuyển khoản trực tiếp vào tài khoản ngân hàng của bạn vào khoảng ngày 15 đến 20 của tháng kế tiếp."
+  }
+];
+---
+
+<section class="section section--muted" id="faqSection" aria-label="Câu hỏi thường gặp về Shopee Affiliate">
+  <div class="container container--narrow">
+    <div class="section-header">
+      <h2 class="section-header__title">Câu Hỏi Thường Gặp Về Shopee Affiliate</h2>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" id={`faq-${index + 1}`} open={index === 0}>
+          <summary class="faq-item__question">{faq.question}</summary>
+          <div class="faq-item__answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

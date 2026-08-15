@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const currentUrl = Astro.url.href;
+---
+
+<div class="share-bar">
+  <span class="share-bar__title">Chia sẻ bài viết:</span>
+  <a 
+    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`}
+    target="_blank" 
+    rel="noopener"
+    class="share-btn"
+    aria-label="Chia sẻ lên Facebook"
+  >
+    📘 Facebook
+  </a>
+  <a 
+    href={`https://t.me/share/url?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`}
+    target="_blank" 
+    rel="noopener"
+    class="share-btn"
+    aria-label="Chia sẻ lên Telegram"
+  >
+    ✈️ Telegram
+  </a>
+  <button 
+    class="share-btn"
+    onclick="navigator.clipboard.writeText(window.location.href); alert('Đã sao chép liên kết bài viết!');"
+    aria-label="Sao chép liên kết"
+  >
+    🔗 Copy Link
+  </button>
+</div>

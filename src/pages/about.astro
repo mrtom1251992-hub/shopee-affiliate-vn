@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/seo/Breadcrumb.astro';
+import AffiliateCtaBox from '../components/article/AffiliateCtaBox.astro';
+import SidebarProof from '../components/widgets/SidebarProof.astro';
+import SidebarTools from '../components/widgets/SidebarTools.astro';
+---
+
+<BaseLayout 
+  title="Giới Thiệu Về ShopeeAffVN — Đội Ngũ & Sứ Mệnh"
+  description="Tìm hiểu về ShopeeAffVN: nền tảng chia sẻ kiến thức, kinh nghiệm và case study Shopee Affiliate Marketing thực chiến hàng đầu Việt Nam."
+>
+  <div class="container" style="padding-top: var(--space-6);">
+    <Breadcrumb items={[{ name: "Giới Thiệu" }]} />
+
+    <section class="content-area" style="padding-top: 0;">
+      <div class="content-main">
+        <header class="article-header">
+          <h1 class="article-header__title">Về Chúng Tôi — ShopeeAffVN</h1>
+          <p class="article-header__lead">
+            Chia sẻ kinh nghiệm thực chiến, đồng hành cùng bạn xây dựng nguồn thu nhập thụ động bền vững từ Shopee Affiliate.
+          </p>
+        </header>
+
+        <div class="prose">
+          <h2>1. Câu Chuyện Của ShopeeAffVN</h2>
+          <p>
+            <strong>ShopeeAffVN</strong> được thành lập từ năm 2024 bởi một nhóm các Publisher và Affiliate Marketer tự do. 
+            Chúng tôi từng trải qua giai đoạn đầu đầy khó khăn: không người theo dõi, spam link bị khóa nick, và doanh thu 0 đồng trong nhiều tháng.
+          </p>
+          <p>
+            Sau nhiều năm nghiên cứu, thử nghiệm và tối ưu quy trình tạo nội dung từ TikTok, Facebook đến Website SEO, 
+            chúng tôi nhận ra rằng: <em>Affiliate Marketing không phải là một trò may rủi, mà là một kỹ năng có thể học và nhân bản được.</em>
+          </p>
+
+          <h2>2. Sứ Mệnh & Giá Trị Cốt Lõi</h2>
+          <ul>
+            <li><strong>Thực chiến 100%:</strong> Mọi kiến thức và case study chia sẻ trên website đều dựa trên số liệu và trải nghiệm thật.</li>
+            <li><strong>Hoàn toàn miễn phí:</strong> Chúng tôi không bán các khóa học làm giàu nhanh. Tất cả hướng dẫn cơ bản đến nâng cao đều được đăng tải công khai.</li>
+            <li><strong>Minh bạch & Đạo đức:</strong> Luôn tuân thủ quy định tiếp thị của Shopee và tôn trọng người tiêu dùng.</li>
+          </ul>
+
+          <h2>3. Thành Tựu Đã Đạt Được</h2>
+          <p>
+            Đến nay, chúng tôi đã hỗ trợ hàng nghìn bạn trẻ, mẹ bỉm sữa và người làm văn phòng tự tạo thêm nguồn thu nhập từ 5 - 20 triệu/tháng từ Shopee Affiliate.
+          </p>
+        </div>
+
+        <AffiliateCtaBox 
+          title="🚀 Tham Gia Cộng Đồng Shopee Affiliate Cùng Chúng Tôi!"
+          description="Bắt đầu từ con số 0 với sự hướng dẫn chi tiết từng bước. Đăng ký tài khoản Shopee Affiliate hoàn toàn miễn phí ngay hôm nay."
+          buttonText="Đăng Ký Shopee Affiliate Miễn Phí →"
+        />
+      </div>
+
+      <aside class="content-sidebar">
+        <SidebarProof />
+        <SidebarTools />
+      </aside>
+    </section>
+  </div>
+</BaseLayout>

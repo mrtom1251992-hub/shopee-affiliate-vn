@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import NewsLayout from '../../layouts/NewsLayout.astro';
+import ArticleCard from '../../components/cards/ArticleCard.astro';
+import CategoryTabs from '../../components/home/CategoryTabs.astro';
+import Breadcrumb from '../../components/seo/Breadcrumb.astro';
+
+const allPosts = await getCollection('bai-viet');
+const sortedPosts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<NewsLayout 
+  title="Tất Cả Bài Viết Shopee Affiliate — Hướng Dẫn & Case Study Thực Chiến"
+  description="Tổng hợp toàn bộ các bài viết chia sẻ kinh nghiệm, hướng dẫn đăng ký, chọn sản phẩm, xây kênh TikTok và SEO cho Shopee Affiliate."
+>
+  <div class="container" style="padding-top: var(--space-6);">
+    <Breadcrumb items={[{ name: "Tất Cả Bài Viết" }]} />
+    <CategoryTabs activeCategory="all" />
+  </div>
+
+  <div class="section-header" style="margin-top: var(--space-6);">
+    <h1 class="section-header__title" style="font-size: var(--font-size-2xl);">
+      Tất Cả Bài Viết ({sortedPosts.length})
+    </h1>
+  </div>
+
+  <div class="article-grid" id="allArticlesGrid">
+    {sortedPosts.map((post) => (
+      <ArticleCard
+        slug={post.slug}
+        title={post.data.title}
+        description={post.data.description}
+        categoryName={post.data.categoryName}
+        publishDate={post.data.publishDate}
+        author={post.data.author}
+        views={post.data.views}
+        commentsCount={post.data.commentsCount}
+        hotBadge={post.data.hotBadge}
+      />
+    ))}
+  </div>
+</NewsLayout>

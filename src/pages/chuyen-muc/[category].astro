@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import NewsLayout from '../../layouts/NewsLayout.astro';
+import ArticleCard from '../../components/cards/ArticleCard.astro';
+import CategoryTabs from '../../components/home/CategoryTabs.astro';
+import Breadcrumb from '../../components/seo/Breadcrumb.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('bai-viet');
+  
+  const categories = [
+    { slug: 'huong-dan', name: 'Hướng Dẫn Cơ Bản', desc: 'Các bài viết hướng dẫn từng bước cho người mới bắt đầu làm Shopee Affiliate.' },
+    { slug: 'chon-san-pham', name: 'Chọn Sản Phẩm', desc: 'Bí quyết và tiêu chí chọn sản phẩm hoa hồng cao, tỷ lệ chuyển đổi tốt trên Shopee.' },
+    { slug: 'case-study', name: 'Case Study', desc: 'Các bài học thực chiến, số liệu doanh thu và kinh nghiệm xương máu từ thực tế.' },
+    { slug: 'tao-content', name: 'Tạo Content', desc: 'Chiến lược làm video TikTok, Reels, Shorts và viết bài review hút khách.' },
+    { slug: 'traffic-seo', name: 'Traffic & SEO', desc: 'Kỹ thuật kéo traffic tự nhiên bền vững từ Google và mạng xã hội về Shopee.' },
+    { slug: 'phan-tich', name: 'Phân Tích & Báo Cáo', desc: 'Phân tích bảng hoa hồng, chính sách Shopee mới nhất và dự đoán xu hướng.' }
+  ];
+
+  return categories.map((cat) => {
+    const filteredPosts = allPosts
+      .filter((post) => post.data.category === cat.slug)
+      .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+    return {
+      params: { category: cat.slug },
+      props: { categoryInfo: cat, posts: filteredPosts },
+    };
+  });
+}
+
+const { categoryInfo, posts } = Astro.props;
+---
+
+<NewsLayout 
+  title={`${categoryInfo.name} — Kinh Nghiệm Shopee Affiliate`}
+  description={categoryInfo.desc}
+>
+  <div class="container" style="padding-top: var(--space-6);">
+    <Breadcrumb items={[
+      { name: "Chuyên Mục", url: "/bai-viet" },
+      { name: categoryInfo.name }
+    ]} />
+    <CategoryTabs activeCategory={categoryInfo.slug} />
+  </div>
+
+  <div class="section-header" style="margin-top: var(--space-6);">
+    <div>
+      <h1 class="section-header__title" style="font-size: var(--font-size-2xl);">
+        Chuyên Mục: {categoryInfo.name} ({posts.length})
+      </h1>
+      <p style="margin-top: var(--space-2); color: var(--text-secondary);">{categoryInfo.desc}</p>
+    </div>
+  </div>
+
+  {posts.length > 0 ? (
+    <div class="article-grid">
+      {posts.map((post) => (
+        <ArticleCard
+          slug={post.slug}
+          title={post.data.title}
+          description={post.data.description}
+          categoryName={post.data.categoryName}
+          publishDate={post.data.publishDate}
+          author={post.data.author}
+          views={post.data.views}
+          commentsCount={post.data.commentsCount}
+          hotBadge={post.data.hotBadge}
+        />
+      ))}
+    </div>
+  ) : (
+    <div style="padding: var(--space-12); text-align: center; background: var(--surface-card); border-radius: var(--radius-lg); border: 1px solid var(--color-neutral-200);">
+      <p style="font-size: var(--font-size-lg); margin-bottom: var(--space-4);">Chưa có bài viết nào trong chuyên mục này.</p>
+      <a href="/bai-viet" class="btn btn--primary">Xem tất cả bài viết →</a>
+    </div>
+  )}
+</NewsLayout>

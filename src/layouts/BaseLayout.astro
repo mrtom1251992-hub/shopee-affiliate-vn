@@ -1,0 +1,129 @@
+---
+import SEOHead from '../components/seo/SEOHead.astro';
+import Navbar from '../components/common/Navbar.astro';
+import MobileMenu from '../components/common/MobileMenu.astro';
+import Footer from '../components/common/Footer.astro';
+
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/components.css';
+import '../styles/layout.css';
+import '../styles/article.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  articleDate?: Date;
+  articleAuthor?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage,
+  articleDate,
+  articleAuthor,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <SEOHead 
+    title={title}
+    description={description}
+    canonicalUrl={canonicalUrl}
+    ogImage={ogImage}
+    articleDate={articleDate}
+    articleAuthor={articleAuthor}
+  />
+</head>
+<body>
+  <div class="page">
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+    <Navbar />
+    <MobileMenu />
+
+    <main class="page__content">
+      <slot />
+    </main>
+
+    <Footer />
+  </div>
+
+  <!-- Global Client Scripts for Theme, Progress, and Mobile Menu -->
+  <script is:inline>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    if (themeToggle) {
+      themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+      });
+    }
+
+    // Reading Progress Bar
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      }, { passive: true });
+    }
+
+    // Mobile Menu Drawer
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const menuCloseBtn = document.getElementById('menuCloseBtn');
+
+    function openMenu() {
+      if (!mobileMenu || !hamburgerBtn) return;
+      mobileMenu.classList.add('mobile-menu--open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburgerBtn.classList.add('hamburger--active');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (!mobileMenu || !hamburgerBtn) return;
+      mobileMenu.classList.remove('mobile-menu--open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburgerBtn.classList.remove('hamburger--active');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu && mobileMenu.classList.contains('mobile-menu--open');
+        isOpen ? closeMenu() : openMenu();
+      });
+    }
+
+    if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
+    if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
+</body>
+</html>

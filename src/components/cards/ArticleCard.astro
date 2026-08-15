@@ -1,0 +1,63 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  categoryName: string;
+  publishDate: Date;
+  author?: string;
+  views?: number;
+  commentsCount?: number;
+  hotBadge?: string;
+  isHero?: boolean;
+}
+
+const {
+  slug,
+  title,
+  description,
+  categoryName,
+  publishDate,
+  author = 'Admin',
+  views = 1200,
+  commentsCount = 12,
+  hotBadge,
+  isHero = false,
+} = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('vi-VN', {
+  day: 'numeric',
+  month: 'numeric',
+  year: 'numeric'
+}).format(publishDate);
+---
+
+<article class={`card ${isHero ? 'card--hero' : ''}`} id={`card-${slug}`}>
+  <div class="card__image" role="img" aria-label={title}>
+    {isHero ? '🔥' : '🛍'}
+  </div>
+  <div class="card__body">
+    <div class="card__meta">
+      {hotBadge && <span class="badge badge--primary">{hotBadge}</span>}
+      <span class="card__category">{categoryName}</span>
+      <span class="card__date">{formattedDate}</span>
+    </div>
+    
+    <h3 class="card__title">
+      <a href={`/bai-viet/${slug}`}>{title}</a>
+    </h3>
+    
+    <p class="card__excerpt">{description}</p>
+    
+    <div class="card__footer">
+      <div class="card__author">
+        <div class="card__author-avatar">S</div>
+        <span>{author}</span>
+      </div>
+      <div class="card__stats">
+        <span>👁 {views.toLocaleString('vi-VN')}</span>
+        <span>💬 {commentsCount}</span>
+      </div>
+    </div>
+  </div>
+</article>
