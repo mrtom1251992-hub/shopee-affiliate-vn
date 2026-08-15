@@ -1143,8 +1143,8 @@
    ───────────────────────────────────── */
 .back-to-top {
   position: fixed;
-  bottom: var(--space-6);
-  right: var(--space-6);
+  bottom: var(--space-4, 16px);
+  right: var(--space-4, 16px);
   width: 44px;
   height: 44px;
   border-radius: var(--radius-full);
@@ -1198,8 +1198,8 @@
 
 @media (max-width: 768px) {
   .back-to-top {
-    bottom: calc(var(--space-8) + 16px);
-    right: var(--space-4);
+    bottom: var(--space-4, 16px);
+    right: var(--space-3, 12px);
     width: 40px;
     height: 40px;
   }
