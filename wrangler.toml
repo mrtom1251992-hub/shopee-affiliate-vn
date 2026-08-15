@@ -6,3 +6,7 @@ pages_build_output_dir = "dist"
 binding = "DB"
 database_name = "shopee-aff-db"
 database_id = "5e43a6f7-c21e-4bc5-bd04-c8426ab58177"
+
+[[r2_buckets]]
+binding = "shopee_assets"
+bucket_name = "shopee-assets"

@@ -6,6 +6,7 @@ interface Props {
   categoryName: string;
   publishDate: Date;
   author?: string;
+  coverImage?: string;
   hotBadge?: string;
   isHero?: boolean;
 }
@@ -17,6 +18,7 @@ const {
   categoryName,
   publishDate,
   author = 'Admin',
+  coverImage,
   hotBadge,
   isHero = false,
 } = Astro.props;
@@ -28,9 +30,13 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
 }).format(publishDate);
 ---
 
-<article class={`card ${isHero ? 'card--hero' : ''}`} id={`card-${slug}`}>
-  <div class="card__image" role="img" aria-label={title}>
-    {isHero ? '🔥' : '🛍'}
+<article class={`card ${isHero ? 'card--hero' : ''}`} id={`card-${slug.replace(/\//g, '-')}`}>
+  <div class="card__image">
+    {coverImage ? (
+      <img src={coverImage} alt={title} loading="lazy" />
+    ) : (
+      <span role="img" aria-label={title}>{isHero ? '🔥' : '🛍'}</span>
+    )}
   </div>
   <div class="card__body">
     <div class="card__meta">

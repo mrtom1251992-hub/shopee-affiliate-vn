@@ -18,7 +18,7 @@ interface Props {
 }
 
 const { article, headings } = Astro.props;
-const { title, description, categoryName, category, publishDate, author, hotBadge, affiliateUrl, affiliateCtaText } = article.data;
+const { title, description, categoryName, category, publishDate, author, coverImage, hotBadge, affiliateUrl, affiliateCtaText } = article.data;
 
 const formattedDate = new Intl.DateTimeFormat('vi-VN', {
   day: 'numeric',
@@ -51,6 +51,12 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
 
           <h1 class="article-header__title">{title}</h1>
           <p class="article-header__lead">{description}</p>
+
+          {coverImage && (
+            <div class="article-header__cover">
+              <img src={coverImage} alt={title} loading="eager" />
+            </div>
+          )}
         </header>
 
         <TableOfContents headings={headings} />
