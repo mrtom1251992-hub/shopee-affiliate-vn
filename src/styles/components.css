@@ -444,22 +444,32 @@
 
 .badge--primary {
   background: var(--color-primary-50);
-  color: var(--color-primary-700);
+  color: var(--color-primary-800);
 }
 
 [data-theme="dark"] .badge--primary {
-  background: rgba(255, 143, 0, 0.15);
-  color: var(--color-primary-400);
+  background: rgba(255, 143, 0, 0.2);
+  color: var(--color-primary-300);
 }
 
 .badge--accent {
-  background: rgba(255, 193, 7, 0.15);
-  color: var(--color-accent-600);
+  background: #FFF8E1;
+  color: #8F6B00;
+}
+
+[data-theme="dark"] .badge--accent {
+  background: rgba(255, 193, 7, 0.2);
+  color: #FFD54F;
 }
 
 .badge--success {
-  background: rgba(46, 125, 50, 0.1);
-  color: var(--color-success);
+  background: rgba(46, 125, 50, 0.12);
+  color: #1B5E20;
+}
+
+[data-theme="dark"] .badge--success {
+  background: rgba(46, 125, 50, 0.25);
+  color: #81C784;
 }
 
 /* ─────────────────────────────────────

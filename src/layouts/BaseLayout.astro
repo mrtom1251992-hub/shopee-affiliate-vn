@@ -44,14 +44,30 @@ const {
     articleAuthor={articleAuthor}
   />
 
-  <!-- Google tag (gtag.js) -->
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SC9H3VDDVZ"></script>
+  <!-- Non-blocking Deferred Google tag (gtag.js) for 90+ Mobile PageSpeed -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-SC9H3VDDVZ');
+    let gaLoaded = false;
+    function loadGA() {
+      if (gaLoaded) return;
+      gaLoaded = true;
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SC9H3VDDVZ';
+      document.head.appendChild(script);
+      gtag('config', 'G-SC9H3VDDVZ');
+    }
+
+    const gaEvents = ['scroll', 'mousemove', 'touchstart', 'keydown'];
+    function triggerGA() {
+      loadGA();
+      gaEvents.forEach(e => window.removeEventListener(e, triggerGA));
+    }
+    gaEvents.forEach(e => window.addEventListener(e, triggerGA, { passive: true, once: true }));
+    setTimeout(loadGA, 3500);
   </script>
 </head>
 <body>
@@ -92,15 +108,20 @@ const {
       });
     }
 
-    // Optimized Reading Progress Bar (Zero Forced Reflow with requestAnimationFrame)
+    // Ultra-Optimized Reading Progress Bar (Zero Forced Reflow layout calculation)
     const progressBar = document.getElementById('progressBar');
     if (progressBar) {
       let ticking = false;
+      let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      
+      window.addEventListener('resize', () => {
+        docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      }, { passive: true });
+
       window.addEventListener('scroll', () => {
         if (!ticking) {
           window.requestAnimationFrame(() => {
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             if (docHeight > 0) {
               progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
             }

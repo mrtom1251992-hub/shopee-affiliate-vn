@@ -60,7 +60,7 @@ const formatPostDate = (date: Date) => {
               <div class="card__author-avatar">S</div>
               <span>{featuredPost.data.author}</span>
             </div>
-            <a href={`/bai-viet/${featuredPost.slug}`} class="btn btn--ghost btn--sm" style="padding: var(--space-1) var(--space-3); color: var(--color-primary-600);">
+            <a href={`/bai-viet/${featuredPost.slug}`} class="btn btn--ghost btn--sm" aria-label={`Đọc tiếp bài: ${featuredPost.data.title}`} style="padding: var(--space-1) var(--space-3); color: var(--color-primary-600);">
               Đọc tiếp →
             </a>
           </div>

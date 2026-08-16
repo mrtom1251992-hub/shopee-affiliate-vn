@@ -3,7 +3,7 @@
 const storefrontUrl = "https://collshp.com/memien2020?view=storefront";
 ---
 
-<aside class="cat-peek" id="catPeek" aria-hidden="true" role="complementary" aria-label="Ủng hộ kênh">
+<aside class="cat-peek" id="catPeek" aria-hidden="true" inert role="complementary" aria-label="Ủng hộ kênh">
   <div class="cat-peek__wrapper">
     <!-- Speech Bubble (Luôn nằm TRÊN đỉnh đầu các bé mèo) -->
     <div class="cat-peek__bubble" id="catBubble">
@@ -432,12 +432,14 @@ const storefrontUrl = "https://collshp.com/memien2020?view=storefront";
         if (shown) return;
         shown = true;
         cat.classList.add('cat-peek--visible');
-        cat.setAttribute('aria-hidden', 'false');
+        cat.removeAttribute('aria-hidden');
+        cat.removeAttribute('inert');
       }
 
       function hideCat() {
         cat.classList.remove('cat-peek--visible');
         cat.setAttribute('aria-hidden', 'true');
+        cat.setAttribute('inert', '');
       }
 
       // Hiện nhanh sau 3.5 giây
