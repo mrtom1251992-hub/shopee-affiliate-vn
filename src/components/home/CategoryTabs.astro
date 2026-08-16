@@ -1,5 +1,5 @@
 ---
-// Category Tabs Component
+// Category Tabs Component with Premium Vector Icons
 interface Props {
   activeCategory?: string;
 }
@@ -7,13 +7,48 @@ interface Props {
 const { activeCategory = 'all' } = Astro.props;
 
 const categories = [
-  { slug: 'all', name: '📋 Tất Cả', url: '/bai-viet' },
-  { slug: 'huong-dan', name: '📝 Hướng Dẫn Cơ Bản', url: '/chuyen-muc/huong-dan' },
-  { slug: 'chon-san-pham', name: '🛍 Chọn Sản Phẩm', url: '/chuyen-muc/chon-san-pham' },
-  { slug: 'case-study', name: '📊 Case Study', url: '/chuyen-muc/case-study' },
-  { slug: 'tao-content', name: '🎬 Reels & Shorts', url: '/chuyen-muc/tao-content' },
-  { slug: 'traffic-seo', name: '🔍 SEO & Group FB/Zalo', url: '/chuyen-muc/traffic-seo' },
-  { slug: 'phan-tich', name: '📈 Bảng Hoa Hồng', url: '/chuyen-muc/phan-tich' },
+  { 
+    slug: 'all', 
+    name: 'Tất Cả', 
+    url: '/bai-viet',
+    icon: 'all'
+  },
+  { 
+    slug: 'huong-dan', 
+    name: 'Hướng Dẫn Cơ Bản', 
+    url: '/chuyen-muc/huong-dan',
+    icon: 'huong-dan'
+  },
+  { 
+    slug: 'chon-san-pham', 
+    name: 'Chọn Sản Phẩm', 
+    url: '/chuyen-muc/chon-san-pham',
+    icon: 'chon-san-pham'
+  },
+  { 
+    slug: 'case-study', 
+    name: 'Case Study', 
+    url: '/chuyen-muc/case-study',
+    icon: 'case-study'
+  },
+  { 
+    slug: 'tao-content', 
+    name: 'Reels & Shorts', 
+    url: '/chuyen-muc/tao-content',
+    icon: 'tao-content'
+  },
+  { 
+    slug: 'traffic-seo', 
+    name: 'SEO & Group FB/Zalo', 
+    url: '/chuyen-muc/traffic-seo',
+    icon: 'traffic-seo'
+  },
+  { 
+    slug: 'phan-tich', 
+    name: 'Bảng Hoa Hồng', 
+    url: '/chuyen-muc/phan-tich',
+    icon: 'phan-tich'
+  },
 ];
 ---
 
@@ -27,9 +62,83 @@ const categories = [
           role="tab"
           aria-selected={activeCategory === cat.slug}
         >
-          {cat.name}
+          {cat.icon === 'all' && (
+            <svg class="tab__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <path d="M9 12h6"></path>
+              <path d="M9 16h6"></path>
+            </svg>
+          )}
+
+          {cat.icon === 'huong-dan' && (
+            <svg class="tab__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          )}
+
+          {cat.icon === 'chon-san-pham' && (
+            <svg class="tab__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          )}
+
+          {cat.icon === 'case-study' && (
+            <svg class="tab__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          )}
+
+          {cat.icon === 'tao-content' && (
+            <svg class="tab__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+              <line x1="7" y1="2" x2="7" y2="22"></line>
+              <line x1="17" y1="2" x2="17" y2="22"></line>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <line x1="2" y1="7" x2="7" y2="7"></line>
+              <line x1="2" y1="17" x2="7" y2="17"></line>
+              <line x1="17" y1="17" x2="22" y2="17"></line>
+              <line x1="17" y1="7" x2="22" y2="7"></line>
+            </svg>
+          )}
+
+          {cat.icon === 'traffic-seo' && (
+            <svg class="tab__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          )}
+
+          {cat.icon === 'phan-tich' && (
+            <svg class="tab__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          )}
+          <span>{cat.name}</span>
         </a>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .tab__icon {
+    display: inline-block;
+    flex-shrink: 0;
+    margin-right: 6px;
+    vertical-align: middle;
+    transition: transform var(--transition-fast);
+  }
+
+  .tab:hover .tab__icon {
+    transform: scale(1.1);
+  }
+</style>

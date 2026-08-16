@@ -46,7 +46,15 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
           <div class="article-header__meta">
             {hotBadge && <span class="badge badge--primary">{hotBadge}</span>}
             <a href={`/chuyen-muc/${category}`} class="badge badge--accent">{categoryName}</a>
-            <span class="card__date">📅 {formattedDate}</span>
+            <span class="card__date">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="card__date-icon" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>{formattedDate}</span>
+            </span>
           </div>
 
           <h1 class="article-header__title">{title}</h1>
@@ -74,10 +82,10 @@ const formattedDate = new Intl.DateTimeFormat('vi-VN', {
         </div>
 
         <AffiliateCtaBox 
-          title="🛒 Bắt Đầu Kiếm Tiền Với Shopee Affiliate Ngay Hôm Nay!"
+          title={affiliateCtaText || "Đăng Ký Shopee Affiliate Ngay Hôm Nay"}
           description="Đăng ký tài khoản Shopee Affiliate hoàn toàn miễn phí. Hưởng mức hoa hồng lên đến 20-30% cho mỗi đơn hàng thành công."
           buttonText={affiliateCtaText || "Đăng Ký Shopee Affiliate Miễn Phí →"}
-          affiliateUrl={affiliateUrl || "https://collshp.com/memien2020?view=storefront"}
+          affiliateUrl={affiliateUrl || "https://s.shopee.vn/4Vc2eObMTo"}
         />
 
         <ShareButtons title={title} />

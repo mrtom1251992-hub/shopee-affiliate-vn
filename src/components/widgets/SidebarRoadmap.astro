@@ -1,12 +1,19 @@
 ---
-// Sidebar Roadmap Component — 5-Step Shopee Affiliate Blueprint
+// Sidebar Roadmap Component — 5-Step Shopee Affiliate Blueprint with Crisp Vectors
 ---
 
 <div class="widget" id="widgetRoadmap">
-  <h3 class="widget__title">🗺 Lộ Trình Shopee Affiliate</h3>
+  <h3 class="widget__title">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="widget__title-svg" aria-hidden="true">
+      <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+      <line x1="8" y1="2" x2="8" y2="18"></line>
+      <line x1="16" y1="6" x2="16" y2="22"></line>
+    </svg>
+    <span>Lộ Trình Shopee Affiliate</span>
+  </h3>
   <div class="widget__list">
     <a href="/bai-viet/huong-dan/shopee-affiliate-la-gi" class="widget__item">
-      <div class="widget__item-icon">1️⃣</div>
+      <div class="widget__step-badge">1</div>
       <div class="widget__item-text">
         <div class="widget__item-name">Đăng ký tài khoản</div>
         <div class="widget__item-detail">Điều kiện & mẹo duyệt trong 24h</div>
@@ -14,7 +21,7 @@
     </a>
     
     <a href="/bai-viet/chon-san-pham/bi-quyet-chon-san-pham-hoa-hong-cao" class="widget__item">
-      <div class="widget__item-icon">2️⃣</div>
+      <div class="widget__step-badge">2</div>
       <div class="widget__item-text">
         <div class="widget__item-name">Chọn sản phẩm hot</div>
         <div class="widget__item-detail">5 tiêu chí chọn deal hoa hồng 15-20% + Extra</div>
@@ -22,7 +29,7 @@
     </a>
     
     <a href="/bai-viet/tao-content/facebook-reels-youtube-shorts-shopee-affiliate" class="widget__item">
-      <div class="widget__item-icon">3️⃣</div>
+      <div class="widget__step-badge">3</div>
       <div class="widget__item-text">
         <div class="widget__item-name">FB Reels & YT Shorts</div>
         <div class="widget__item-detail">Kéo đơn short-video, chèn link không bị bóp</div>
@@ -30,7 +37,7 @@
     </a>
     
     <a href="/bai-viet/traffic-seo/seo-blog-shopee-affiliate" class="widget__item">
-      <div class="widget__item-icon">4️⃣</div>
+      <div class="widget__step-badge">4</div>
       <div class="widget__item-text">
         <div class="widget__item-name">Blog SEO & Group FB/Zalo</div>
         <div class="widget__item-detail">Content Cluster Google & tệp khách săn deal</div>
@@ -38,7 +45,7 @@
     </a>
     
     <a href="/bai-viet/case-study/case-study-0-den-52-trieu-hoa-hong" class="widget__item">
-      <div class="widget__item-icon">5️⃣</div>
+      <div class="widget__step-badge">5</div>
       <div class="widget__item-text">
         <div class="widget__item-name">Scale thu nhập 50M+</div>
         <div class="widget__item-detail">Chiến lược săn sale Double Days & Lương Về</div>
@@ -46,3 +53,32 @@
     </a>
   </div>
 </div>
+
+<style>
+  .widget__title-svg {
+    color: var(--color-primary-600);
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .widget__step-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 12px;
+    box-shadow: 0 2px 6px rgba(238, 77, 45, 0.25);
+    transition: transform var(--transition-fast);
+  }
+
+  .widget__item:hover .widget__step-badge {
+    transform: scale(1.15) rotate(5deg);
+  }
+</style>

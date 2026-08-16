@@ -550,13 +550,25 @@
 }
 
 .card__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: var(--font-size-xs);
   color: var(--color-neutral-700);
   white-space: nowrap;
 }
 
+.card__date-icon {
+  flex-shrink: 0;
+  color: var(--color-primary-600);
+}
+
 [data-theme="dark"] .card__date {
   color: var(--color-neutral-400);
+}
+
+[data-theme="dark"] .card__date-icon {
+  color: var(--color-primary-400);
 }
 
 .card__title {

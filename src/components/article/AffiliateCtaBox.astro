@@ -1,4 +1,5 @@
 ---
+// Affiliate CTA Box Component with Vector Icon
 interface Props {
   title?: string;
   description?: string;
@@ -7,15 +8,25 @@ interface Props {
 }
 
 const {
-  title = "🛒 Bắt Đầu Kiếm Tiền Với Shopee Affiliate Ngay Hôm Nay!",
+  title = "Bắt Đầu Kiếm Tiền Với Shopee Affiliate Ngay Hôm Nay!",
   description = "Đăng ký chương trình Shopee Affiliate hoàn toàn miễn phí. Nhận ngay bộ tài liệu hướng dẫn chọn sản phẩm và kịch bản video TikTok kéo hàng nghìn click mỗi ngày.",
   buttonText = "Đăng Ký Shopee Affiliate Miễn Phí →",
-  affiliateUrl = "https://collshp.com/memien2020?view=storefront"
+  affiliateUrl = "https://s.shopee.vn/4Vc2eObMTo"
 } = Astro.props;
+
+// Strip any legacy emoji if passed from props
+const cleanTitle = title.replace(/^[🛒🛍🎁🚀🔥\s]+/, '');
 ---
 
 <div class="cta-box" id="articleCtaBox">
-  <h3 class="cta-box__title">{title}</h3>
+  <div class="cta-box__icon-wrapper">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <path d="M16 10a4 4 0 0 1-8 0"></path>
+    </svg>
+  </div>
+  <h3 class="cta-box__title">{cleanTitle}</h3>
   <p class="cta-box__desc">{description}</p>
   <a 
     href={affiliateUrl} 
@@ -26,3 +37,22 @@ const {
     {buttonText}
   </a>
 </div>
+
+<style>
+  .cta-box__icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(238, 77, 45, 0.15), rgba(238, 77, 45, 0.25));
+    color: var(--color-primary-600);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+  }
+
+  [data-theme="dark"] .cta-box__icon-wrapper {
+    background: rgba(238, 77, 45, 0.2);
+    color: #FFA585;
+  }
+</style>

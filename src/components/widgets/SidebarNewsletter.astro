@@ -1,12 +1,20 @@
 ---
-// Sidebar Newsletter Widget
+// Sidebar Newsletter Widget with Pure SVG Vector Icons
 ---
 
 <div class="widget widget--newsletter" id="widgetNewsletter">
-  <h3 class="widget__title">📬 Nhận Kinh Nghiệm Shopee</h3>
-  <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-4);">
+  <h3 class="widget__title">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="widget__title-svg" aria-hidden="true">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+      <polyline points="22,6 12,13 2,6"></polyline>
+    </svg>
+    <span>Nhận Kinh Nghiệm Shopee</span>
+  </h3>
+  
+  <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--space-4); line-height: var(--line-height-normal);">
     Đăng ký nhận email chia sẻ case study, danh sách deal hoa hồng 20% và mẹo chạy traffic mỗi tuần.
   </p>
+
   <form class="widget__input-group" id="newsletterForm" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi tài liệu sớm nhất.'); this.reset();">
     <input 
       type="email" 
@@ -15,8 +23,20 @@
       placeholder="Email của bạn..." 
       aria-label="Nhập email nhận bài viết" 
     />
-    <button type="submit" class="btn btn--primary" style="width: 100%;">
-      Đăng Ký Nhận Bài Miễn Phí 🚀
+    <button type="submit" class="btn btn--primary" style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+      <span>Đăng Ký Nhận Bài Miễn Phí</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
     </button>
   </form>
 </div>
+
+<style>
+  .widget__title-svg {
+    color: var(--color-primary-600);
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+</style>

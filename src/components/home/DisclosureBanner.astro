@@ -1,11 +1,17 @@
 ---
-// Transparency / Affiliate Disclosure Banner
+// Transparency / Affiliate Disclosure Banner with SVG Vector Icon
 ---
 
 <section class="disclosure-section" aria-label="Thông báo liên kết tiếp thị">
   <div class="container">
     <div class="disclosure" id="disclosure">
-      <span class="disclosure__icon">ℹ️</span>
+      <div class="disclosure__icon-box">
+        <svg class="disclosure__svg-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      </div>
       <p>
         <strong>Minh bạch:</strong> Một số đường dẫn trong các bài viết trên website là liên kết tiếp thị liên kết (<strong>Shopee Affiliate</strong>).
         Nếu bạn đăng ký hoặc mua sắm qua link này, chúng tôi nhận được một khoản hoa hồng nhỏ mà bạn <strong>hoàn toàn không phải trả thêm bất kỳ chi phí nào</strong>.
@@ -14,3 +20,18 @@
     </div>
   </div>
 </section>
+
+<style>
+  .disclosure__icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: var(--space-2, 8px);
+    color: var(--color-primary-600);
+  }
+
+  [data-theme="dark"] .disclosure__icon-box {
+    color: var(--color-primary-400);
+  }
+</style>
