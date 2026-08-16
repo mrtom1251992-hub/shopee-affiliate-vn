@@ -43,6 +43,16 @@ const {
     articleDate={articleDate}
     articleAuthor={articleAuthor}
   />
+
+  <!-- Google tag (gtag.js) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SC9H3VDDVZ"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SC9H3VDDVZ');
+  </script>
 </head>
 <body>
   <div class="page">
@@ -139,6 +149,29 @@ const {
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMenu();
+    });
+
+    // Automatic Tracking Affiliate Link Clicks for GA4
+    document.addEventListener('click', (e) => {
+      const link = e.target instanceof Element ? e.target.closest('a') : null;
+      if (!link) return;
+
+      const href = link.getAttribute('href') || '';
+      const isAffiliate = href.includes('shope.ee') || 
+                          href.includes('shopee.vn') || 
+                          href.includes('s.lazada') || 
+                          href.includes('lazada.vn') || 
+                          href.includes('tiktok.com') || 
+                          href.includes('accesstrade') || 
+                          link.hasAttribute('data-affiliate');
+
+      if (isAffiliate && typeof window.gtag === 'function') {
+        window.gtag('event', 'click_affiliate', {
+          'affiliate_url': href,
+          'page_location': window.location.href,
+          'link_text': (link.textContent || '').trim().substring(0, 100)
+        });
+      }
     });
   </script>
 </body>
